@@ -1,0 +1,94 @@
+<header class="bg-blue index_head_img img-fluid" style="padding-bottom:0.6rem;z-index: 1;">
+    <div class="container px-5 position-relative">
+        <div class="row searchText position-relative">
+            <div class="col-lg-12 my-5">
+                <div class="my-5">
+                    <div class="carousel slide" data-bs-ride="carousel">
+                        <!-- <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        </div> -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="10000">
+                                <div class="carousel-caption">
+                                    <h1 class="display-5 fw-bolder text-start">尋找頂尖人才<br></h1>
+                                    <h1 class="display-5 fw-bolder"><span class="text-orange">傑報</span>幫您實現事業目標</h1>
+                                    <!-- <h1 class="display-5 fw-bolder text-black text-start">尋找合適人才<br></h1>
+                                    <h1 class="display-5 fw-bolder text-black"><span class="text-orange">傑報</span>幫您實現事業目標</h1> -->
+                                </div>
+                            </div>
+                            <div class="carousel-item"  data-bs-interval="10000">
+                                <div class="carousel-caption">
+                                    <h1 class="display-5 fw-bolder text-start">All you need to do<br></h1>
+                                    <h1 class="display-5 fw-bolder">is <span class="text-orange">enjoy</span> your career.</h1>
+                                    <!-- <h1 class="display-5 fw-bolder text-black text-start">All you need to do<br></h1>
+                                    <h1 class="display-5 fw-bolder text-black">is <span class="text-orange">enjoy</span> your career.</h1> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="pt-5" #f="ngForm">
+                        <!-- Input Card -->
+                        <div class="row input-card input-card-sm">
+                            <div class="col-md-12  col-lg-3">
+                                <div class="input-card-form">
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-prepend input-group-text">
+                                            <i class="bi-geo-alt-fill"></i>
+                                        </span>
+                                        <select class="form-select form-select-md quickSelect" name="selectedPlace"
+                                            ngModel [(ngModel)]="selectedPlaceItem" placeholder="請選擇地區">
+                                            <option [ngValue]=0 [disabled]="true">請選擇地區</option>
+                                            <option value=0>不拘</option>
+                                            <option *ngFor="let place of places" [value]="place.id">{{place.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12  col-lg-3">
+                                <div class="input-card-form">
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-prepend input-group-text">
+                                            <i class="bi-bag"></i>
+                                        </span>
+                                        <select class="form-select form-select-md quickSelect" name="selectedJob"
+                                            ngModel [(ngModel)]="selectedJobItem" placeholder="請選擇職務類別">
+                                            <option [ngValue]=0 [disabled]="true">請選擇職務類別</option>
+                                            <option value=0>不拘</option>
+                                            <option *ngFor="let job of jobs" [value]="job.id">{{job.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-md-12 col-lg-4">
+                                <div class="input-card-form">
+                                    <label for="jobTitleForm" class="form-label visually-hidden">關鍵字（例：職務、描述）</label>
+                                    <div class="input-group input-group-merge col-lg-12">
+                                        <span class="input-group-prepend input-group-text">
+                                            <i class="bi-search"></i>
+                                        </span>
+                                        <input type="search" class="form-control" placeholder="關鍵字（例：職務、描述）"
+                                            aria-label="關鍵字（例：職務、描述）" name="search" ngModel [(ngModel)]="searchText"
+                                            #text="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-2 mt-1">
+                                <button type="submit" class="btn btn-orange btn-block" (click)="findJobs(f)">搜尋</button>
+                            </div>
+                        </div>
+                        <!-- End Input Card -->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="d-none d-lg-block col-lg-6 position-lg-absolute top-0 end-48">
+            <img class="img-fluid" src="assets/images/head_kv.jpg" alt="..." />
+            <div class="position-absolute top-80 start-100 translate-middle blue-circle" style="z-index: -1;"></div>
+            <div class="position-absolute top-0 start-0 translate-middle yellow-circle" style="z-index:1;"></div>
+        </div> -->
+    </div>
+</header>

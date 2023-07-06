@@ -1,0 +1,129 @@
+    <header class="py-5 header-img img-opt">
+        <div class="container px-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xxl-6">
+                    <div class="text-center my-5">
+                        <h1 class="fw-bolder mb-3 text-white">訂閱電子報</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section style="background-image: linear-gradient(to top,  #f6f6f6, rgba(0, 0, 0, 0.0));">
+        <div class="p-t50" style="margin-top:-5rem!important;">
+            <div class="container section-full">
+                <div style="text-align: center;" *ngIf="isLoading">
+                    <app-loading-spinner1></app-loading-spinner1>
+                </div>
+                <!-- <div class="modal-dialog bg-img-fix"> -->
+                <div class="row justify-content-md-center" *ngIf="!isLoading">
+                    <!--<div class="col-lg-6 col-md-6" style="background-image: url(../../../assets/images/background/bg3.jpg);  background-position:center; background-size:cover;">
+                        <div class="form-info text-white align-self-center">
+                            <h3 class="m-b15">Login To You Now</h3>
+                            <p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry.</p>
+                            
+                        </div>
+                    </div>-->
+    
+                    <div class="col-lg-6  col-md-6 browse-job  forgot_box shadow-sm">
+                        <!-- <div class="mb-3"><a href="" title="點我回首頁"><img src="assets/images/logo.png" alt="傑報人力銀行" style="width:160px; height: auto;"></a></div> -->
+                        <!-- <div class="alert alert-danger" *ngIf="message">
+                            <div>
+                                {{ message }}
+                            </div>
+                        </div> -->
+                        
+                    <div class="mb-4 text-muted">
+                        歡迎訂閱傑報中高階職缺電子報！我們將寄送職缺資訊給您。<br>
+                        如果您對職缺感到興趣，歡迎您於職缺資料點選 上傳履歷 或透過 <a class="line_color" href="https://line.me/R/ti/p/%40713llckw?oat__id=1091236" target="_blank">LINE</a> 與我們聯繫了解詳情。
+                    </div>
+                        <form #f="ngForm" (ngSubmit)="executeAction('subscribe')">
+                            <!-- <form #f="ngForm" (ngSubmit)="loginMe()"> -->
+                                <div class="row">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label>姓名<span class="text-orange m-lg-1"><strong>*</strong></span></label>
+                                            <input type="text" #q="ngModel" ngModel name="username"
+                                                class="form-control input-required" placeholder="請輸入您的姓名" required
+                                                [ngClass]="{'error-border is-invalid': (!q.valid && f.submitted)||(!q.valid && q.touched)}"
+                                                required />
+                                        </div>
+                                    </div>
+                                <div class="col-12 col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label class="d-flex justify-content-between">
+                                            <span >E-mail<span class="text-orange m-lg-1"><strong>*</strong></span></span>
+                                            <span class="error" *ngIf="p.invalid && p.dirty">E-mail格式錯誤</span>
+                                        </label>
+                                        <input ngModel #p="ngModel" name="usermail" class="form-control input-required"
+                                            placeholder="請輸入您的E-mail" required
+                                            [ngClass]="{'error-border is-invalid':(!p.valid && f.submitted)||(!p.valid && p.touched)}" email 
+                                            [ngStyle]="{'border': p.invalid && p.touched ? '1px solid red' : ''}"/>
+                                        <!-- <span class="asterisk_input"></span> -->
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label>區域</label>
+                                        <angular2-multiselect
+                                        name="selectedArea"
+                                        [data]="areaDataList"
+                                        [(ngModel)]="areaSelectedItems"
+                                        [settings]="areaDropSetting"
+                                        (onSelect)="onAreaItemSelect()"
+                                        (onDeSelect)="onAreaItemDeselect()"
+                                        (onSelectAll)="onAreaSelectAll()"
+                                        (onDeSelectAll)="onAreaDeselectAll()">
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-12 mb-5">
+                                    <div class="form-group mb-4">
+                                        <label>職務（最多選擇 3 項）</label>
+                                        <angular2-multiselect
+                                        name="selectedPost"
+                                        [data]="postDataList"
+                                        [(ngModel)]="postSelectedItems"
+                                        [settings]="postDropSetting"
+                                        (onSelect)="onPostItemSelect()"
+                                        (onDeSelect)="onPostItemDeselect()"
+                                        (onSelectAll)="onPostSelectAll()"
+                                        (onDeSelectAll)="onPostDeselectAll()">
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row justify-content-md-center clearfix">
+                                <div class="col-lg-6  col-md-6">
+                                    <button type="submit" class="btn btn-orange btn-block" (click)="subscribeNews(f)">訂閱</button>
+                                </div>
+                            </div>
+    
+    
+                            <div class="text-center mt-2">
+                                <a data-toggle="tab" routerLink="/Unsubscribe" class="forget-pass active show">
+                                    取消訂閱
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- <div class="browse-job login-style3"> -->

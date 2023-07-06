@@ -1,0 +1,37 @@
+.searchText {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    margin: 0 auto;
+}
+@media (max-width: 575.98px){
+    .input-card-sm .input-card-form:first-child {
+        padding-bottom: 1.25rem!important;
+    }
+}
+
+@media (max-width: 1400px){
+    .bg-blue .my-5{
+        margin-top: 2.5rem !important;
+        margin-bottom: 1.65rem !important;
+    }
+}
+.index_head_img {
+        /* // 透明度 0.6 的黑色半透明遮罩 */
+    background-color:rgba(0, 0, 0, 0.4);
+        /* // 設置背景混和模式為相乘模式 */
+    background-blend-mode: multiply;
+    background-image: url("../../../../assets/images/background/head_kv2.png"); 
+    background-size: cover;
+    background-position: center center;
+    min-height:450px;
+}
+
+.headhunter_text{
+    color: #FFD653;
+    text-shadow: 3px 3px 0 #084298, -1px -1px 0 #084298, 1px 1px 0 #41464b, -1px 1px 0 #41464b, 1px 1px 0 #ffc107;
+}
+
+.carousel-caption{
+    position: initial !important;
+}

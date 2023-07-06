@@ -1,0 +1,105 @@
+<!-- abc -->
+<div class="container">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary top-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        #searchButton>
+        <div class="row">
+            <div class="col-lg-3">
+                <i class="bi bi-search"></i>
+            </div>
+            <div class="col-lg-9 d-none d-lg-block" style="padding-left: 3px;">
+                搜尋工作
+            </div>
+        </div>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal right fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><b>搜尋工作</b></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" >
+                    <div *ngIf="!previewMode">
+                        <form #f="ngForm">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <div class="input-card-form">
+                                        <div class="input-group input-group-merge">
+                                            <span class="input-group-prepend input-group-text">
+                                                <i class="bi-geo-alt-fill"></i>
+                                            </span>
+                                            <select class="form-select form-select-md quickSelect" name="selectedPlace"
+                                                ngModel [(ngModel)]="selectedPlaceItem" placeholder="請選擇地區">
+                                                <option [ngValue]=0 [disabled]="true">請選擇地區</option>
+                                                <option value=0>不拘</option>
+                                                <option *ngFor="let place of places" [value]="place.id">
+                                                    {{place.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="input-card-form">
+                                        <div class="input-group input-group-merge">
+                                            <span class="input-group-prepend input-group-text">
+                                                <i class="bi bi-bag-fill"></i>
+                                            </span>
+                                            <select class="form-select form-select-md quickSelect" name="selectedJob"
+                                                ngModel [(ngModel)]="selectedJobItem" placeholder="請選擇職務類別">
+                                                <option [ngValue]=0 [disabled]="true">請選擇職務類別</option>
+                                                <option value=0>不拘</option>
+                                                <option *ngFor="let job of jobs" [value]="job.id">
+                                                    {{job.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="input-card-form">
+                                        <label for="jobTitleForm"
+                                            class="form-label visually-hidden">關鍵字（例：職務、地區）</label>
+                                        <div class="input-group input-group-merge col-lg-12">
+                                            <span class="input-group-prepend input-group-text">
+                                                <i class="bi-search"></i>
+                                            </span>
+                                            <input type="search" class="form-control" placeholder="關鍵字（例：職務、地區）"
+                                                aria-label="關鍵字（例：職務、地區）" name="search" ngModel
+                                                [(ngModel)]="searchText" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-1">
+                                    <button type="submit" class="btn btn-block btn-orange"
+                                        (click)="findText(); searchButton.click()">尋找</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container px-5 my-5">
+    <div class="row">
+        <div class="col-lg-12" [ngClass]="{'mg-t7':!previewMode}">
+            <ng-container *ngIf="(jobs$|async) as js">
+                <app-jobs [previewMode]="previewMode" [jobs]="js" *ngIf="js.length>0 else empty"></app-jobs>
+            </ng-container>
+            <ng-template #empty>
+                <div class="col-lg-7 mb-20">
+                    <h4>無符合搜尋結果</h4>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

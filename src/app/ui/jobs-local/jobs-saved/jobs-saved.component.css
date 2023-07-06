@@ -1,0 +1,107 @@
+.searchText {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    margin: 0 auto;
+}
+
+.input-card {
+    padding: 0.25rem 0.25rem;
+    box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
+}
+
+.input-card .form-select {
+    border-color: #FFF;
+    color: #8c98a4;
+}
+
+select.form-select {
+    padding: 9.8px 16px 9.8px 54px;
+}
+
+.btn_pd {
+    padding-top: 3.5px;
+    padding-right: 5px;
+}
+
+.pd_0 {
+    padding: 0;
+}
+
+.input-group-merge .form-control:not(:first-child),
+.input-group-merge .form-select:not(:first-child) {
+    padding-left: 2.5rem !important;
+}
+
+
+.mb-20 {
+    margin-top: 15rem;
+    margin-left: 21rem;
+    margin-bottom: 10rem;
+}
+/* @media only screen(max-width:992px;){
+    .mg-l2{
+        margin-left:2rem;
+    }
+} */
+
+/* 
+@media screen and (min-width:800px) and (max-width: 990px) {
+    .mg-l1 {
+        margin-left: 6rem;}
+
+        .mg-t7 {
+            margin-top: 8rem;}
+} */
+
+
+@media (max-width: 998px )  {
+    .mg-t7 {
+        margin-top: 8rem;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .mg-l1 {
+        margin-left: 0.25rem;
+    }
+
+    .btn_pd {
+        padding-top: 7px;
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-bottom: 5px;
+    }
+
+    #select.my-5 {
+        margin-bottom: 0 !important;
+    }
+
+    .mg-t7 {
+        margin-top:0.25rem;
+    }
+
+    .my-5 {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .mb-20 {
+        margin-top: 15rem !important;
+        margin-left: 1rem !important;
+        margin-bottom: 10rem !important;
+    }
+
+}
+.header-img {
+    /* // 透明度 0.6 的黑色半透明遮罩 */
+    /* background-color: rgba(1, 37, 91, .55); */
+    /* // 設置背景混和模式為相乘模式 */
+    background-color:rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    background-image: url("../../../../assets/images/background/like.jpg");
+    background-size: cover;
+    background-position: center center;
+}

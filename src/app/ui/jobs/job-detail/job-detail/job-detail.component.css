@@ -1,0 +1,386 @@
+.ml-2{
+    margin-left:0.25rem;
+}
+
+a {
+    /* color: #232323; */
+    text-decoration: none !important;
+}
+
+a :hover {
+    text-decoration: underline;
+    color:#2A5078;
+}
+
+.keepmyformat {
+    white-space: pre-line;
+}
+
+.mr-2{
+    padding-right:1rem;
+}
+
+.forgot_box{
+    border:0;
+    background-color:#FFFFFF;
+    padding:2em 2em 0 2em;
+}
+
+.job_title{
+    padding:0em 2em 0em 2em;
+}
+
+.bg {
+    background-image: url(../../../../../assets/images/banner/bnr1.jpg);
+}
+
+strong {
+    font-weight: 400 !important;
+    color: #232323;
+}
+
+li strong {
+    font-weight: 600 !important;
+}
+
+p {
+    color: #6F6F6F;
+    line-height: 24px;
+    /* margin-top: 0; */
+    margin-bottom: 24px;
+}
+
+.m-b-lg {
+    margin-bottom: 30px;
+}
+
+.sticky-top {
+    z-index: 99 !important;
+}
+
+
+
+.widget.bg-white {
+    border: 1px solid #ebedf2;
+}
+
+.p-lr20 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.widget_getintuch {
+    padding-top: 10px;
+}
+
+.widget_getintuch b,
+.widget_getintuch strong {
+    display: block;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.text-black-light {
+    color: #999;
+}
+
+.section-full {
+    position: relative;
+}
+
+.dez-divider {
+    height: 1px;
+    position: relative;
+    margin: 30px 0;
+}
+
+.bg-gray-dark {
+    background-color: #d3d3d3;
+}
+
+h5 {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.m-b10 {
+    margin-bottom: 10px;
+}
+
+.m-t0 {
+    margin-top: 0;
+}
+
+.list-num-count>li {
+    position: relative;
+    margin: 0 0 6px 30px;
+    padding: 4px 8px;
+    list-style: none;
+}
+
+.widget_getintuch li {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.widget_getintuch i {
+    position: absolute;
+    left: 0;
+    text-align: right;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    line-height: 27px;
+}
+
+.widget_categories ul,
+.widget_archive ul,
+.widget_meta ul,
+.widget_pages ul,
+.widget_recent_comments ul,
+.widget_nav_menu ul,
+.widget_rss ul,
+.widget_recent_entries ul,
+.widget_services ul,
+.widget_getintuch ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.share-icon_pd {
+    padding-left: 6px;
+    padding-top: 1px;
+}
+
+.star-btn {
+    display: block;
+    /*position: absolute;*/
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: bootstrap-icons !important;
+    top: 25px;
+    right: 25px;
+}
+
+.star-btn input {
+    /*position: absolute;*/
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark-star {
+    position: absolute;
+    right:475px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #2e55fa;
+    border-radius: 20px;
+}
+
+
+
+.star-btn input:checked~.checkmark-star {
+    background-color: #2196F3;
+}
+
+.checkmark-star:after {
+    content: "\f586";
+    position: absolute;
+    display: none;
+}
+
+.star-btn input:checked~.checkmark-star:before {
+    width: 100%;
+    height: 100%;
+    background-color: #2e55fa;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.star-btn .checkmark-star:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+}
+
+.star-btn .checkmark-star:before {
+    content: "\f588";
+    left: 6px;
+    top: 2px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: normal;
+    color: #2e55fa;
+}
+
+.share-icon_pd {
+    color: #2e55fa;
+}
+
+.share_circle {
+    position: absolute;
+    right: 429px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #2e55fa;
+    border-radius: 20px;
+}
+
+.share_circle .bi-share-fill:before {
+    left: 6px;
+    top: 6px;
+    position: absolute;
+    font-size: 16px;
+}
+
+@media (max-width:900px) {
+    .job-info-box #icon .mt-4 {
+        margin-top: 0 !important;
+    }
+}
+
+.jobapply-btn {
+    display: block;
+    /*position: absolute;*/
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: bootstrap-icons !important;
+    top: 25px;
+    right: 25px;
+}
+
+.jobapply-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.checkmark-jobapply {
+    position: absolute;
+    top: 2px;
+    right: 523px;
+    height: 30px;
+    width: 78px;
+    border: 1px solid #2e55fa;
+    border-radius: 20px;
+}
+
+@media screen and (max-width:420px){
+    .checkmark-jobapply{
+        right:98px !important;
+    }
+}
+
+
+.jobapply-btn input:checked~.checkmark-jobapply:before {
+    width: 100%;
+    height: 100%;
+    background-color: #2e55fa;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    color: #fff;
+    padding: 1px 6px;
+}
+
+.checkmark-jobapply-joined:before {
+    content: "已應徵";
+    /* left: 12px;
+    top: 1px; */
+    /* width: 100%;
+    height:100%; */
+    background-color: #2e55fa;
+    position:absolute;
+    top: 2px;
+    right: 523px;
+    /* position: absolute; */
+    font-size: 16px;
+    border-radius: 20px;
+    font-weight: normal;
+    color: #FFF;
+    padding: 1px 12px;
+}
+
+.jobapply-btn .checkmark-jobapply:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+}
+
+.jobapply-btn .checkmark-jobapply:before {
+    content: "我要應徵";
+    left: 6px;
+    top: 1px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: normal;
+    color: #2e55fa;
+}
+
+@media screen and (max-width:575px) {
+    #title{
+        margin-top:0rem !important;
+    }
+} 
+
+@media(max-width:900px) {
+    .checkmark-star {
+        right: 54px;
+    }
+    .checkmark-jobapply-joined:before {
+        right: 93px;
+    }
+    .share_circle {
+        right: 12px;
+    }
+}
+
+.fixed-sticky{
+    position: sticky;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.bg-op95{
+    background-color:rgba(255,255,255,0.85);
+}
+
+.pd_tb-sm{
+    border-top:1px solid #ebedf2;
+    padding-top:10px;
+    padding-bottom:10px;
+}

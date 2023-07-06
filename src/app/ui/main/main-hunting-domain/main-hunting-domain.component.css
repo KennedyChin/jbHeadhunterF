@@ -1,0 +1,43 @@
+.py-9 {
+    padding-top: 9rem !important;
+    padding-bottom: 9rem !important;
+}
+
+@media screen and (max-width:500px){
+    .py-9{
+        padding-top:1.5rem !important;
+        padding-bottom:1.5rem !important;
+    }
+
+     h2{
+        font-size:27px;
+       
+    }
+    
+    .card h2{
+        font-size: 20px;
+    }
+
+    #text p{
+        font-size:20px;
+    } 
+}
+
+.i-f75{
+    font-size: 2.27rem;
+}
+
+@media (max-width: 575.98px){
+    .container.px-5 {
+        padding-right: 1.75rem !important;
+        padding-left:  1.75rem !important;
+    } 
+}
+
+.justify{
+    text-align:justify;
+}
+
+.top-55{
+    top:55%;
+}

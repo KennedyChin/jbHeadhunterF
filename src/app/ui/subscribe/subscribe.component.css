@@ -1,0 +1,79 @@
+.input-required {
+    /* border:2px solid rgb(238,130,238); */
+}
+
+/* .error-border {
+    border: 2px solid red;
+} */
+
+::placeholder::before {
+    content: "*";
+}
+
+.asterisk_input::after {
+    content: "*";
+    color: #e32;
+    position: absolute;
+    margin: 0px 0px 0px -15px;
+    font-size: large;
+    padding: 0 5px 0 0;
+}
+
+.line_color{
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+a:not([href]):not([class]):hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color:#00c300;
+}
+
+.icon-bx-wraper.center {
+    text-align: center;
+}
+
+.p-a30 {
+    padding: 30px;
+}
+
+.m-b30 {
+    margin-bottom: 30px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.header-img {
+    /* // 透明度 0.6 的黑色半透明遮罩 */
+    /* background-color: rgba(1, 37, 91, .55); */
+    /* // 設置背景混和模式為相乘模式 */
+    background-color:rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    background-image: url("../../../assets/images/background/sub2.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+label{
+    color:#213e5b;
+    font-weight: 600;
+}
+
+.forgot_box{
+    background-color:#FFFFFF;
+    border:none;
+}
+
+.selected-list .c-list .c-token {
+    background: #FFFFFF;
+}
+
+label .error{
+    color: #e32;
+    font-weight: 500;
+    font-size:14px;
+}

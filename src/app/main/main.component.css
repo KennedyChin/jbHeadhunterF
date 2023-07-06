@@ -1,0 +1,27 @@
+select.form-control:not([size]):not([multiple]) {
+    height: 50px;
+}
+
+.search {
+    box-shadow: none;
+}
+
+.search:focus {
+    /* border-bottom: 1px solid blue; */
+    border-bottom: 2px solid #2e55fa;
+}
+
+.form-group.focused{
+    background-color:transparent;
+    border-color:transparent;
+}
+
+.inut-group>.form-control:focus{
+    background-color:transparent;
+}
+
+
+.form-control:focus{
+    background-color: transparent;
+}
+

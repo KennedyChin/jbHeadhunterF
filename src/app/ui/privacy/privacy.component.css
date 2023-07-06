@@ -1,0 +1,74 @@
+div{
+    font-size:17px;
+}
+p{
+    font-size:17px;
+}
+.icon-bx-wraper.center {
+    text-align: center;
+}
+
+.p-a30 {
+    padding: 30px;
+}
+
+.m-b30 {
+    margin-bottom: 30px;
+}
+
+.m-b15 {
+    margin-bottom: 15px;
+}
+
+.font-25 {
+    font-size: 2.5em;
+}
+
+.font-27 {
+    font-size: 2.7rem;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.header-img {
+    /* // 透明度 0.6 的黑色半透明遮罩 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* // 設置背景混和模式為相乘模式 */
+    background-blend-mode: multiply;
+    background-image: url("../../../assets/images/background/aboutus_2.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+@media (max-width:575.98px) {
+    .mb-5 {
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+.text_highlight {
+    background-color: #f3971b;
+    color: #FFFFFF;
+    padding:0.2rem 0.5rem;
+    white-space: nowrap;
+    margin-top: 2rem;
+}
+
+li {
+    padding-bottom: 0.5rem;
+}
+
+
+/* .text_highlight_warning{
+    background-image: linear-gradient(to bottom,rgba(245,202,153,.5),rgba(245,202,153,.5));
+    background: left 1em/1em 0.2em;
+    background-repeat: repeat-x;
+} */
+
+
+/* [class*=text_highlight_]{
+    background: left 1em/1em 0.2em;
+    background-repeat: repeat-x;
+} */

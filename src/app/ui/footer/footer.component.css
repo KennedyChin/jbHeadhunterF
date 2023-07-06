@@ -1,0 +1,26 @@
+.btn-line{
+    margin: 0.25rem 0.125rem;
+    color:#FFFF;
+    background-color:#00c300;
+    border-color:#00c300;
+}
+
+@media (max-width: 575.98px){
+    .container.px-5 {
+        padding-right:2.5rem !important;
+        padding-left: 2.5rem !important;
+    }
+
+    .py-5{
+        padding-bottom:0 !important;
+    }
+    .copyright-t{
+        padding-top:2rem;
+    }
+}
+
+.mt-75{
+    margin-top:0.75rem;
+}
+
+

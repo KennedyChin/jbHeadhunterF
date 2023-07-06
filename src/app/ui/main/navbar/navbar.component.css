@@ -1,0 +1,34 @@
+.nav-divider {
+    height: 2rem;
+    border-left: 0.1rem solid rgba(0, 34, 28, .1);
+    margin: 0 0.5rem;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-expand-lg .nav-divider {
+        width: 100%;
+        height: 0.0625rem;
+        border-left: none;
+        border-top: 0.1rem solid rgba(0, 34, 28, .1);
+        margin: 0.5rem 0;
+    }
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+}
+
+/* .navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #A0BCC8;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:foncus {
+    color: #FFFFFF;
+} */
+
+@media(max-width:454px){
+    .dropdown-item{
+        padding:0.5rem 0.5rem;
+    }
+}

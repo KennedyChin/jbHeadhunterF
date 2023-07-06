@@ -1,0 +1,5 @@
+ul li{
+    list-style-type:none;
+    padding: 1rem .25rem;
+    border-bottom: 1px solid #CCC;
+}

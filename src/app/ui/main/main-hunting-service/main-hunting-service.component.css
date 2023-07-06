@@ -1,0 +1,24 @@
+.img-70{
+    width:70%;
+    height:auto;
+}
+
+.index_head_img {
+    /* // 透明度 0.6 的黑色半透明遮罩 */
+  /* background-color:rgba(0, 0, 0, 0.4); */
+    /* // 設置背景混和模式為相乘模式 */
+  background-blend-mode: multiply;
+  background-image: url("../../../../assets/images/background/footer_2.jpg"); 
+  background-size: cover;
+  background-position: center center;
+  min-height:450px;
+  background-attachment: fixed;
+  }
+
+  .geometry{
+    -moz-transform:rotate(-15deg);
+  -webkit-transform:rotate(-15deg);
+  -o-transform:rotate(-15deg);
+  -ms-transform:rotate(-15deg);
+  transform:rotate(-15deg);
+}

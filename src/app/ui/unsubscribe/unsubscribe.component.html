@@ -1,0 +1,50 @@
+
+<div class="p-t70" style="background-color:#f6f6f6;">
+    <div class="container section-full p-t50 px-5">
+        <div style="text-align: center;" *ngIf="isLoading">
+            <app-loading-spinner1></app-loading-spinner1>
+        </div>
+        <div class="col-md-12" *ngIf="!isLoading">
+            <div class="row g-0 rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
+                <div class="col-auto">
+                    <img src="assets/images/background/unsub3.jpg" class=" shadow-sm img-fluid bd-placeholder-img">
+                </div>
+                <div class="col p-4 d-flex flex-column position-static bg-white">
+                    
+                        <h2 class="text-center fw-bolder mb-5 text-darkblue">取消訂閱電子報</h2>
+                        <form #f="ngForm" (ngSubmit)="executeAction('unsubscribe')">
+                            <!-- <form #f="ngForm" (ngSubmit)="loginMe()"> -->
+                            <!-- 
+                            <div class="mb-5 text-muted">
+                                如要取消訂閱電子報請輸入電子郵件，並於收到的郵件内點擊取消訂閱。
+                            </div> -->
+
+                            <div class="form-group mb-5">
+                                <label class="d-flex justify-content-between">
+                                    <span>E-mail<span class="text-orange m-lg-1"><strong>*</strong></span></span>
+                                    <span class="error" *ngIf="p.invalid && p.dirty">E-mail格式錯誤</span>
+                                </label>
+                                <input ngModel #p="ngModel" [(ngModel)]="userMail" name="usermail" class="form-control input-required"
+                                    placeholder="請輸入電子郵件" required
+                                    [ngClass]="{'error-border is-invalid':(!p.valid && f.submitted)||(!p.valid && p.touched)}"
+                                    email [ngStyle]="{'border': p.invalid && p.touched ? '1px solid red' : ''}" />
+                                <!-- <span class="asterisk_input"></span> -->
+                            </div>
+                            <div class="row justify-content-md-center clearfix mt-5">
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn btn-orange btn-block"
+                                        (click)="unsubscribeNews(f)">取消訂閱</button>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <a data-toggle="tab" routerLink="/Subscribe" class="forget-pass active show">
+                                        我要訂閱
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

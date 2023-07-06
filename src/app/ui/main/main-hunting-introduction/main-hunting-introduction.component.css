@@ -1,0 +1,14 @@
+.geometry{
+    -moz-transform:rotate(-15deg);
+  -webkit-transform:rotate(-15deg);
+  -o-transform:rotate(-15deg);
+  -ms-transform:rotate(-15deg);
+  transform:rotate(-15deg);
+}
+
+.right_line{
+  border-right:1px solid #e4e4e4;
+  height:auto;
+
+}
+

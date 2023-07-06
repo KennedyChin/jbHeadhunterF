@@ -1,0 +1,583 @@
+
+h4 a{
+    text-decoration: nonoe;
+    color:#213e5b;
+} 
+
+h4 a:hover{
+    text-decoration: underline;
+    color:#213e5b;
+    cursor: pointer; 
+} 
+
+.font-s14{
+    font-size:14px;
+}
+.star-btn_checked {
+    width: 100%;
+    height: 100%;
+    background-color: #2e55fa;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.obsolete {
+    color: #d1cfcf;
+}
+
+.obsolete ul li {
+    color: #d1cfcf;
+}
+
+.obsolete h4 b {
+    color: #d1cfcf;
+}
+
+.obsolete a:hover {
+    text-decoration: none;
+}
+
+.obsolete span {
+    color: #6f6f6f;
+}
+
+.obsolete .fa-share-alt:before {
+    color: #e1e7ff;
+}
+
+/* .post-job-bx li .post-bx.obsolete:hover {
+    border-left: 5px solid #e1e7ff;
+} */
+
+.post-bx .fa-star-o {
+    color: #2E55FA;
+    margin: 5px;
+    text-align: center;
+}
+
+.form-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-job-bx,
+.post-job-bx li,
+.post-job-bx ul,
+.cv-manager,
+.cv-manager li,
+.cv-manager ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bootstrap-select ul li {
+    font-size: 15px!important
+}
+
+.find-job-bx .bootstrap-select.btn-group .dropdown-toggle .caret {
+    top: 20px;
+    right: 0;
+    font-size: 12px
+}
+
+.find-job-bx .bootstrap-select.btn-group .dropdown-toggle .caret::before {
+    content: "\f078"
+}
+
+.browse-job .bootstrap-select.btn-group .dropdown-toggle .caret {
+    top: 15px
+}
+
+.table-job-bx.browse-job .bootstrap-select.btn-group .dropdown-toggle .caret {
+    top: 13px
+}
+
+.post-job-bx {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.cv-manager,
+.cv-manager li,
+.cv-manager ul,
+.post-job-bx,
+.post-job-bx li,
+.post-job-bx ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.post-job-bx ul li i,
+.cv-manager ul li i {
+    margin-right: 5px;
+}
+
+.cv-manager ul li,
+.post-job-bx ul li {
+    display: inline-block;
+    margin-right: 10px
+}
+
+.cv-manager ul li i,
+.post-job-bx ul li i {
+    margin-right: 5px
+}
+
+.cv-manager .job-post-company {
+    margin-right: 20px
+}
+
+.post-job-bx .post-bx {
+    padding: 25px;
+    background-color: #fff;
+    border: 0.0625rem solid rgba(33, 50, 91, .1);
+    /* border-left: 5px solid #e1e7ff; */
+    border-radius: 7px;
+    box-shadow: 0 0 10px 0 rgba(0, 24, 128, .1);
+    display: block;
+    position: relative
+}
+
+/* .post-job-bx .post-bx:hover {
+    border-left: 5px solid #0D6efd;
+} */
+
+.cv-manager>li,
+.post-job-bx>li {
+    margin-bottom: 30px
+}
+
+.post-job-bx>li:last-child {
+    margin-bottom: 0
+}
+
+.post-job-bx>li:nth-of-type(2n+1) .post-bx {
+    background-color: #ffffff;
+}
+
+.job-post-company span {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    background-color: #e1e7ff;
+    text-align: center;
+    overflow: hidden
+}
+
+.save-job .job-post-company {
+    max-width: 65px
+}
+
+.post-job-bx h4 {
+    margin-bottom: 10px
+}
+
+.salary-bx span {
+    color: #000;
+    font-family: rubik;
+    font-size: 22px
+}
+
+.mr-5{
+    margin-right: 1.5rem!important;
+}
+
+.job-time span {
+    border-radius: 4px;
+    background-color: #e1e7ff;
+    display: block;
+    font-size: 15px;
+    padding: 2px 10px;
+    display: inline-block;
+    text-align: center;
+    transition: all .5s;
+    font-family: roboto;
+    text-transform: capitalize
+}
+
+
+/* .job-time a:hover span {
+            color: #e1e7ff;
+            transition: all .5s
+        } */
+
+.job-post-company {
+    margin-right: 20px;
+}
+
+/* .post-bx .row {
+    justify-content: flex-end;
+} */
+
+.post-job-bx,
+.post-job-bx li,
+.post-job-bx ul,
+.cv-manager,
+.cv-manager li,
+.cv-manager ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-job-bx>li,
+.cv-manager>li {
+    margin-bottom: 30px;
+}
+
+.job-post-info a b {
+    color: #1e2022;
+    text-decoration: none;
+}
+
+.job-post-info a {
+    text-decoration: none;
+}
+
+.obsolete .job-post-info a b {
+    color: #d1cfcf;
+}
+
+.obsolete p {
+    color: #d1cfcf;
+}
+
+
+/*-- 分享、求職、儲存按鈕 --*/
+
+.star-btn {
+    display: block;
+    /*position: absolute;*/
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: bootstrap-icons !important;
+    top: 25px;
+    right: 25px;
+}
+
+.star-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark-star {
+    position: absolute;
+    top: 22px;
+    right: 68px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #2e55fa;
+    border-radius: 20px;
+}
+
+
+/* @media (max-width:900px) {
+    .checkmark-star {
+        top: ;
+    }
+} */
+
+.star-btn input:checked~.checkmark-star {
+    background-color: #2196F3;
+}
+
+.checkmark-star:after {
+    content: "\f586";
+    position: absolute;
+    display: none;
+}
+
+.star-btn input:checked~.checkmark-star:before {
+    width: 100%;
+    height: 100%;
+    background-color: #2e55fa;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.star-btn .checkmark-star:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+}
+
+.star-btn .checkmark-star:before {
+    content: "\f588";
+    left: 6px;
+    top: 2px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: normal;
+    color: #2e55fa;
+}
+
+.jobapply-btn {
+    display: block;
+    /*position: absolute;*/
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: bootstrap-icons !important;
+    top: 25px;
+    right: 25px;
+}
+
+.jobapply-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.checkmark-jobapply  {
+    position: absolute;
+    top: 22px;
+    left: -43px;
+    height: 30px;
+    width: 78px;
+    border: 1px solid #2e55fa;
+    border-radius: 20px;
+}
+
+.checkmark-jobapply-joined {
+    position: absolute;
+    top: 22px;
+    left: -43px;
+    height: 30px;
+    width: 78px;
+    /* border: 1px solid #2e55fa; */
+    border-radius: 20px;
+}
+
+
+.jobapply-btn .checkmark-jobapply:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+}
+
+.jobapply-btn .checkmark-jobapply-joined:before {
+    content: "已應徵";
+    /* left: 12px;
+    top: 1px; */
+    width: 100%;
+    height:100%;
+    background-color: #2e55fa;
+    position: absolute;
+    font-size: 16px;
+    border-radius: 20px;
+    font-weight: normal;
+    color: #FFF;
+    padding: 1px 12px;
+
+}
+
+.jobapply-btn .checkmark-jobapply:before {
+    content: "我要應徵";
+    left: 6px;
+    top: 1px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: normal;
+    color: #2e55fa;
+}
+
+p {
+    color: #677788;
+}
+
+ul li {
+    color: #0D6efd;
+}
+
+/* .post-bx .row {
+    justify-content: flex-end;
+} */
+
+.share_circle {
+    position: absolute;
+    top: 21px;
+    right: 30px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #2e55fa;
+    border-radius: 20px;
+}
+
+.share_circle .bi-share-fill:before {
+    left: 6px;
+    top: 6px;
+    position: absolute;
+    font-size: 16px;
+}
+
+.obsolete .share_circle {
+    border: 1px solid #d1cfcf;
+}
+
+.mt5-5 {
+    margin-top: 5.5rem !important;
+}
+
+@media (max-width:900px) {
+    .mt5-5 {
+        margin-top: 0 !important;
+        margin-bottom: 2.5rem !important;
+    }
+}
+
+.candidate-info ul li a {
+    width: 100%;
+    padding: 15px 20px;
+    display: inline-block;
+    border-top: 1px solid #E1E7FF;
+    color: #232323;
+    border-left: 3px solid rgba(0, 0, 0, 0);
+}
+
+.box-shadow {
+    box-shadow: 0 0 10px 0 rgb(0 24 128 / 10%);
+}
+
+.content-inner-2 {
+    padding-top: 50px;
+    padding-bottom: 27px;
+}
+
+.section-full {
+    position: relative;
+}
+
+.sticky-top,
+.sticky-top>.side-bar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+}
+
+.candidate-info ul {
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.sticky-top {
+    z-index: 99;
+}
+
+ol,
+ul {
+    padding-left: 0rem;
+}
+
+.sticky-top,
+.sticky-top>.side-bar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+}
+
+.job-time span {
+    color: #2e55fa;
+    border-radius: 4px;
+    background-color: #dbe9fe;
+    display: block;
+    font-size: 15px;
+    padding: 2px 10px;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.5s;
+    font-family: roboto;
+    text-transform: capitalize;
+}
+
+.job-time-del{
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    display: block;
+    font-size: 15px;
+    padding: 2px 10px;
+    display: inline-block;
+    text-align: center;
+    transition: all .5s;
+    font-family: roboto;
+    text-transform: capitalize;
+}
+
+.job-time-del span{
+    color:#d1cfcf;
+}
+
+.candidate-info ul li a:hover,
+.candidate-info ul li a.active {
+    background: #dbe9fe;
+    border-left-color: #0d6efd;
+    color: #2e55fa;
+    text-decoration: none;
+}
+
+.candidate-info ul li a span {
+    transition: all 0.5s;
+}
+
+.candidate-info ul li a:hover span {
+    margin-left: 10px;
+    transition: all 0.5s;
+}
+
+.pd_05 {
+    padding: 1.5rem 1.5rem;
+}
+
+
+
+@media screen and (max-width:420px) {
+    #title{
+        margin-top:0rem !important;
+   }
+
+} 
+
+.title_line2{
+    border-bottom: 1px solid #dbe9fe;
+    padding: 0px 0;
+    margin-bottom: 30px
+}
+
+a.disabled {
+    cursor: pointer;
+ }
+ 

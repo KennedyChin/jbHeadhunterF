@@ -1,0 +1,74 @@
+input[type=checkbox], 
+input[type=checkbox]+label {
+    cursor: pointer;
+}
+
+.input-required {
+    /* border:2px solid rgb(238,130,238); */
+}
+
+
+::placeholder::before {
+    content: "*";
+}
+
+.asterisk_input::after {
+    content: "*";
+    color: #e32;
+    position: absolute;
+    margin: 0px 0px 0px -15px;
+    font-size: large;
+    padding: 0 5px 0 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header-img {
+    /* // 透明度 0.6 的黑色半透明遮罩 */
+    /* background-color: rgba(1, 37, 91, .55); */
+    /* // 設置背景混和模式為相乘模式 */
+    background-color:rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    background-image: url("../../../assets/images/background/upload4.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+
+label{
+    color:#213e5b;
+    font-weight: 600;
+}
+
+.forgot_box{
+    background-color:#FFFFFF;
+    border:none;
+}
+
+a b.text-darkblue:hover{
+  text-decoration:underline;
+}
+
+.ml-2{
+    margin-left:10px;
+}
+
+.form-check-input{
+    width: 1.25em;
+    height: 1.25em;
+    margin-top: 1px;
+}
+
+label .error{
+    color: #e32;
+    font-weight: 500;
+    font-size:14px;
+}
+
+label .note{
+    color: rgb(136, 133, 132);
+    font-weight: 500;
+    font-size:14px;
+}
