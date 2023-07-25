@@ -123,7 +123,22 @@ export class UploadResumeComponent implements OnInit  {
           
         }))
 
-        this.uploadSub = upload$.subscribe((n: any) => {console.log(n); this.fileKeyID = n.fileUploadKey})
+        upload$.subscribe({
+          next: (response: any) => {
+              console.log(response);
+              // alert('檔案正確');
+              this.uploadSub = upload$.subscribe((n: any) => {console.log(n); this.fileKeyID = n.fileUploadKey})
+          },
+          error: (error: any) => {
+            console.log(error);
+            if (error.status === 400) {
+              alert('無上傳檔案或內容為空，請檢查附件内容，並請於稍後重試。');
+            } else {
+              alert('上傳檔案連線異常，請稍後再試');
+            }
+          }
+        });
+        
       }
     }
   }
@@ -142,10 +157,10 @@ export class UploadResumeComponent implements OnInit  {
 
   sendUserData(form: NgForm){
     // 檢查是否有上傳履歷
-   if (this.resumeInput?.nativeElement.files?.length === 0) {
-     // 若未上傳履歷則阻止上傳
-     return
-   }
+  if (this.resumeInput?.nativeElement.files?.length === 0) {
+    // 若未上傳履歷則阻止上傳
+    return
+  }
   else{
 
     if (!this.agreePrivacyPolicy) {
@@ -184,15 +199,30 @@ export class UploadResumeComponent implements OnInit  {
           , jsonBody, { 'headers': headers })
           .pipe(finalize(()=>{}))
 
-          sendUserData$.subscribe(n=>console.log(n));
+          // sendUserData$.subscribe(n=>console.log(n));
 
-          this.backToMain()
+          sendUserData$.subscribe({
+            next: (response: any) => {
+                console.log(response);
+                alert('上傳成功');
+                this.backToMain()
+            },
+            error: (error: any) => {
+              console.log(error);
+              if (error.status === 404) {
+                alert('找不到對應資訊，請檢查欄位及履歷是否均有填寫，並請於稍後重試。');
+              } else {
+                alert('連線異常，請稍後再試');
+              }
+            }
+          });
 
         } 
         else {
           // 表單驗證失敗，阻止提交表單
         }
-    }}
+      }
+    }
   }
 
   clickTickTock(){
