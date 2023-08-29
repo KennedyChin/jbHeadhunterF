@@ -16,6 +16,8 @@ import { Observable } from 'rxjs';
 import { JobHttp } from '../share/Model/JobHttpDto';
 import { BehaviorSubject, of } from 'rxjs';
 
+import { JobServiceService } from 'src/app/services/job-service.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,17 +30,18 @@ export class JobLocalServiceService {
   savedJobsCount$ = this.savedJobsCountSource.asObservable();
 
   constructor(
-    private http: HttpClient) {
-  }
-
-  /**
-   * 更新收藏職缺數量
-   * @param count 
-   */
-  updateSavedJobsCount(count: number) {
-    this.savedJobsCountSource.next(count);
+    private http: HttpClient
+    , private jobService: JobServiceService) {
   }
   
+  updateLocalStorage(jobs: number[], savedData: JobHttp[]): void {
+    const updatedJobs = jobs.filter(job => savedData.some(data => data.id === job));
+    localStorage.setItem('jobs', JSON.stringify(updatedJobs));
+
+    let savedJobsIds = JSON.parse(localStorage.getItem('jobs')!) || [];
+    this.jobService.updateSavedJobsCount(savedJobsIds.length);
+  }
+
   /**
    * 取得所有收藏的職缺内容
    * @returns 
@@ -61,6 +64,8 @@ export class JobLocalServiceService {
       });
     });
     
+    this.updateLocalStorage(jobs, savedData);
+
     return of(savedData);
   }
 

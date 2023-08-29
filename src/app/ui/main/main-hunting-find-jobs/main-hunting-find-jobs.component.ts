@@ -15,7 +15,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 
-import * as Job from '../../jobs/jobs.component'
+import * as Job from '../../jobs/jobs.component';
+import { JobLocalServiceService } from 'src/app/services/job-local-service.service';
 
 
 @Component({
@@ -39,6 +40,7 @@ export class MainHuntingFindJobsComponent implements OnInit {
     private router:Router
     , private http: HttpClient
     , private titleService: Title
+    , private _jobService:JobLocalServiceService
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,8 @@ export class MainHuntingFindJobsComponent implements OnInit {
     this.http.get<any[]>('https://hunter.jbhr.com.tw/api/Job/jobCategory').subscribe(n => this.jobs = n);
 
     // this.http.get<any[]>('https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/jobCategory').subscribe(n => this.jobs = n);    
+
+    this._jobService.getSavedJobs();
   }
 
   /**

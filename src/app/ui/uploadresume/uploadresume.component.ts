@@ -225,13 +225,13 @@ export class UploadResumeComponent implements OnInit  {
     }
   }
 
-  clickTickTock(){
-    // 發送 HTTP GET 請求
-    console.log('TickTockTest');
+  // clickTickTock(){
+  //   // 發送 HTTP GET 請求
+  //   console.log('TickTockTest');
 
-    this._http.get('https://hunter.jbhr.com.tw/api/File/TickTock').subscribe(n=>console.log(n));
-    // console.log(test);    
-  }
+  //   this._http.get('https://hunter.jbhr.com.tw/api/File/TickTock').subscribe(n=>console.log(n));
+  //   // console.log(test);    
+  // }
 
   backToMain(){
     alert('已上傳履歷');
