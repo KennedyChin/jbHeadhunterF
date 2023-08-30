@@ -34,12 +34,14 @@ export class JobLocalServiceService {
     , private jobService: JobServiceService) {
   }
   
-  updateLocalStorage(jobs: number[], savedData: JobHttp[]): void {
-    const updatedJobs = jobs.filter(job => savedData.some(data => data.id === job));
-    localStorage.setItem('jobs', JSON.stringify(updatedJobs));
-
-    let savedJobsIds = JSON.parse(localStorage.getItem('jobs')!) || [];
-    this.jobService.updateSavedJobsCount(savedJobsIds.length);
+  updateLocalStorage(jobs: number[], savedDataObservable: Observable<JobHttp[]>): void {
+    savedDataObservable.subscribe(savedData => {
+      const updatedJobs = jobs.filter(job => savedData.some(data => data.id === job));
+      localStorage.setItem('jobs', JSON.stringify(updatedJobs));
+  
+      let savedJobsIds = JSON.parse(localStorage.getItem('jobs')!) || [];
+      this.jobService.updateSavedJobsCount(savedJobsIds.length);
+    });
   }
 
   /**
@@ -64,8 +66,6 @@ export class JobLocalServiceService {
       });
     });
     
-    this.updateLocalStorage(jobs, savedData);
-
     return of(savedData);
   }
 

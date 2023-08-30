@@ -39,6 +39,10 @@ export class JobsSavedComponent implements OnInit {
     this.titleService.setTitle("我的收藏｜JB Headhunter");
     // this.queryParamSubscribe()
     let o = this._jobService.getSavedJobs()
+
+    const jobs: number[] = JSON.parse(localStorage.getItem('jobs')!);
+    this._jobService.updateLocalStorage(jobs, o);
+
     this.jobs$ = o
   }
 }

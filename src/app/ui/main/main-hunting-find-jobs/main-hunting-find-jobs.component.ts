@@ -55,7 +55,11 @@ export class MainHuntingFindJobsComponent implements OnInit {
 
     // this.http.get<any[]>('https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/jobCategory').subscribe(n => this.jobs = n);    
 
-    this._jobService.getSavedJobs();
+    let o = this._jobService.getSavedJobs();
+
+    const jobs: number[] = JSON.parse(localStorage.getItem('jobs')!);
+    
+    this._jobService.updateLocalStorage(jobs, o);
   }
 
   /**
