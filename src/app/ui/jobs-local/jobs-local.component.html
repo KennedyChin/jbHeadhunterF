@@ -1,61 +1,72 @@
 <div class="section-full content-inner-2 pd_05">
-    <div class="justify-content-center container d-sm-flex my-5">
-        <div class="col-lg-12">
-            <div class="row px-5">
-                <ul class="post-job-bx browse-job">
-                    <li class="wow fadeInDown" *ngFor="let j of jobs">
-                        <div class="post-bx">
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div class="row">
-                                        <h4 id="title">
-                                            <a (click)="openJob(j)" [ngClass]="{'disabled':previewMode}">
-                                                <b class="text-darkblue">
-                                                    {{j.jobName}}
-                                                </b>
-                                            </a>
-                                        </h4>
-                                        <span class="m-b10 text-muted font-s14 mb-2">職缺代碼：{{j.companY_JOB_ID}}</span>
-                                        <div class="row d-flex justify-content-start mb-2">
-                                            <div class="col-lg-3 col-sm-12 mb-2">
-                                                <span class="mr-5 text-blue">
-                                                    <i class="bi bi-geo-alt-fill text-orange"></i>
-                                                    <span class="ml-2 text-muted">{{j.whereToDo}}</span>
-                                                </span>
-                                            </div>
+  <div class="justify-content-center container d-sm-flex my-5">
+    <div class="col-lg-12">
+      <div class="row px-5">
+        <ul class="post-job-bx browse-job">
+          <li class="wow fadeInDown" *ngFor="let j of jobs">
+            <div class="post-bx">
+              <div class="row">
+                <div class="col-lg-10">
+                  <div class="row">
+                    <h4 id="title">
+                      <a
+                        (click)="openJob(j)"
+                        [ngClass]="{ disabled: previewMode }"
+                      >
+                        <b class="text-darkblue">
+                          {{ j.jobName }}
+                        </b>
+                      </a>
+                    </h4>
+                    <span class="m-b10 text-muted font-s14 mb-2"
+                      >職缺代碼：{{ j.companY_JOB_ID }}</span
+                    >
+                    <div class="row d-flex justify-content-start mb-2">
+                      <div class="col-lg-3 col-sm-12 mb-2">
+                        <span class="mr-5 text-blue">
+                          <i class="bi bi-geo-alt-fill text-orange"></i>
+                          <span class="ml-2 text-muted">{{ j.whereToDo }}</span>
+                        </span>
+                      </div>
 
-                                            <div class="col-lg-4 col-sm-12">
-                                                <span class="mr-5 text-blue">
-                                                    <i class="bi bi-bag-fill text-orange"></i>
-                                                    <span class="ml-2 text-muted">{{j.jobCategory}}</span>
-                                                </span>
-                                            </div>
-                                        </div>
+                      <div class="col-lg-4 col-sm-12">
+                        <span class="mr-5 text-blue">
+                          <i class="bi bi-bag-fill text-orange"></i>
+                          <span class="ml-2 text-muted">{{
+                            j.jobCategory
+                          }}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-2">
-                                    <div class="row ">
-                                        <div>
-                                            <div class="btn btn-secondary btn-sm btn-block  mb-2"
-                                                *ngIf="isJobSaved(j) else notFavo" (click)="jobsSaved(j)">
-                                                <i class="bi bi-star"></i> 解除收藏
-                                            </div>
-                                            <ng-template #notFavo>
-                                                <div class="btn btn-outline-darkblue btn-sm btn-block  mb-2"
-                                                    (click)="jobsSaved(j)">
-                                                    <i class="bi bi-star"></i> 收藏
-                                                </div>
-                                            </ng-template>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-2">
+                  <div class="row">
+                    <div>
+                      <div
+                        class="btn btn-secondary btn-sm btn-block mb-2"
+                        *ngIf="isJobSaved(j); else notFavo"
+                        (click)="jobsSaved(j)"
+                      >
+                        <i class="bi bi-star"></i> 解除收藏
+                      </div>
+                      <ng-template #notFavo>
+                        <div
+                          class="btn btn-outline-darkblue btn-sm btn-block mb-2"
+                          (click)="jobsSaved(j)"
+                        >
+                          <i class="bi bi-star"></i> 收藏
                         </div>
-                    </li>
-                </ul>
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>

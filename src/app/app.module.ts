@@ -10,7 +10,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown'
 import { NgxPrintModule} from 'ngx-print'
 /** 定義ngx Date Picker 中文參數  */
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -60,6 +59,8 @@ import { JobsListComponent } from './ui/jobs/jobs-list/jobs-list.component';
 import { JobsSavedComponent } from './ui/jobs-local/jobs-saved/jobs-saved.component';
 import { WhereUareComponent } from './ui/public/where-uare/where-uare.component';
 import { TermsOfServiceComponent } from './ui/public/terms-of-service/terms-of-service.component';
+
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown'
 
 @NgModule({
   declarations: [
@@ -111,7 +112,7 @@ import { TermsOfServiceComponent } from './ui/public/terms-of-service/terms-of-s
     ReactiveFormsModule,
     NgxSpinnerModule,
     NgxPrintModule,
-    AngularMultiSelectModule,
+    NgMultiSelectDropDownModule,
     ToastrModule.forRoot({
       'progressBar':false
       ,'timeOut':5000
@@ -132,7 +133,7 @@ import { TermsOfServiceComponent } from './ui/public/terms-of-service/terms-of-s
     //,{provide: RECAPTCHA_V3_SITE_KEY, useValue: "6Lf63x0gAAAAAOHCsyhYgRLAQH-71pkA1EbMWS3E"}
   ],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  // schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
   constructor() {

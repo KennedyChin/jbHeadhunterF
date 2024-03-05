@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription, empty } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { finalize } from 'rxjs/internal/operators/finalize';
-import { DropdownSettings } from 'angular2-multiselect-dropdown/lib/multiselect.interface';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -48,7 +48,7 @@ export class SubscribeComponent implements OnInit {
     badgeShowLimit: 5,
     disabled: false,
     groupBy: 'groupName',
-  } as DropdownSettings;
+  } as IDropdownSettings;
 
   postDataList: { id: number; name: string }[] = [];
   postSelectedItems: { id: number; name: string }[] = [{ id: 0, name: '不拘' }];
@@ -66,7 +66,7 @@ export class SubscribeComponent implements OnInit {
     badgeShowLimit: 5,
     disabled: false,
     selectionLimit: 3,
-  } as DropdownSettings;
+  } as IDropdownSettings;
 
   constructor(
     private route: ActivatedRoute,
