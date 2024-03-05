@@ -18,6 +18,8 @@ import { Title } from '@angular/platform-browser';
 import * as Job from '../../jobs/jobs.component';
 import { JobLocalServiceService } from 'src/app/services/job-local-service.service';
 
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-main-hunting-find-jobs',
   templateUrl: './main-hunting-find-jobs.component.html',
@@ -45,15 +47,14 @@ export class MainHuntingFindJobsComponent implements OnInit {
     this.titleService.setTitle('首頁｜JB Headhunter');
 
     // 在初始化 Component 時呼叫 API 取得地區資料
+
     this.http
-      .get<any[]>('https://hunter.jbhr.com.tw/api/Job/place')
+      .get<any[]>(`${environment.apiUrl}/Job/place`)
       .subscribe((n) => (this.places = n));
 
-    // this.http.get<any[]>('https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/place').subscribe(n => this.places = n);
-
-    // this.http.get<any[]>('https://hunter.jbhr.com.tw/api/Job/jobCategory').subscribe(n => this.jobs = n);
-
-    // this.http.get<any[]>('https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/jobCategory').subscribe(n => this.jobs = n);
+    this.http
+      .get<any[]>(`${environment.apiUrl}/Job/jobCategory`)
+      .subscribe((n) => (this.jobs = n));
 
     let o = this._jobService.getSavedJobs();
 
