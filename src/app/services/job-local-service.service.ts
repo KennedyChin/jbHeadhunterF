@@ -11,12 +11,14 @@
  */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 
 import { JobHttp } from '../share/Model/JobHttpDto';
 import { BehaviorSubject, of } from 'rxjs';
 
 import { JobServiceService } from 'src/app/services/job-service.service';
+
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -66,19 +68,20 @@ export class JobLocalServiceService {
       return of(savedData);
     }
 
-    // 正式環境 API 的 URL
-    const url = 'https://hunter.jbhr.com.tw/api/Job/GetJobDetial/';
-    // // 測試環境 API 的 URL
-    // const url = 'https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/GetJobDetial/';
+    const url = `${environment.apiUrl}/Job/GetJobDetial/`;
 
     // 分別將資料抓出來
-    jobs.forEach((job) => {
-      this.http.get<JobHttp>(url + job).subscribe((data) => {
-        savedData.push(data);
-      });
-    });
+    // jobs.forEach((job) => {
+    //   this.http.get<JobHttp>(url + job).subscribe((data) => {
+    //     savedData.push(data);
+    //   });
+    // });
 
-    return of(savedData);
+    // return of(savedData);
+
+    let requests = jobs.map((job) => this.http.get<JobHttp>(url + job));
+
+    return forkJoin(requests);
   }
 
   /**
