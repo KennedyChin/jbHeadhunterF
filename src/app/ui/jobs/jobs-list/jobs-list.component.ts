@@ -16,7 +16,7 @@ import { JobServiceService } from 'src/app/services/job-service.service';
 import { JobHttp } from 'src/app/share/Model/JobHttpDto';
 import { JobsComponent } from '../jobs.component';
 import { HttpClient } from '@angular/common/http';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -36,7 +36,7 @@ export class JobsListComponent implements OnInit {
   selectedPlaceId:number = 0;
   selectedJobId:number = 0;
 
-  searchControl = new FormControl('');
+  searchControl = new UntypedFormControl('');
   places!: any[]
   jobs!: any[]
 
