@@ -1,6 +1,6 @@
 /**===================================================
  * 名稱：job-local-service.service.ts
- * 
+ *
  * 用途：處理【收藏職缺】相關的服務内容
  * 版本：
  * ===================================================
@@ -19,26 +19,35 @@ import { BehaviorSubject, of } from 'rxjs';
 import { JobServiceService } from 'src/app/services/job-service.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JobLocalServiceService {
   // 宣告並初始化 savedJobsCount 屬性（收藏職缺的數量）
-  savedJobsCount: number = 0; 
+  savedJobsCount: number = 0;
 
   private savedJobsCountSource = new BehaviorSubject<number>(0);
 
   savedJobsCount$ = this.savedJobsCountSource.asObservable();
 
   constructor(
-    private http: HttpClient
-    , private jobService: JobServiceService) {
-  }
-  
-  updateLocalStorage(jobs: number[], savedDataObservable: Observable<JobHttp[]>): void {
-    savedDataObservable.subscribe(savedData => {
-      const updatedJobs = jobs.filter(job => savedData.some(data => data.id === job));
+    private http: HttpClient,
+    private jobService: JobServiceService
+  ) {}
+
+  updateLocalStorage(
+    jobs: number[],
+    savedDataObservable: Observable<JobHttp[]>
+  ): void {
+    if (!jobs || !jobs.length) {
+      return;
+    }
+
+    savedDataObservable.subscribe((savedData) => {
+      const updatedJobs = jobs.filter((job) =>
+        savedData.some((data) => data.id === job)
+      );
       localStorage.setItem('jobs', JSON.stringify(updatedJobs));
-  
+
       let savedJobsIds = JSON.parse(localStorage.getItem('jobs')!) || [];
       this.jobService.updateSavedJobsCount(savedJobsIds.length);
     });
@@ -46,13 +55,16 @@ export class JobLocalServiceService {
 
   /**
    * 取得所有收藏的職缺内容
-   * @returns 
+   * @returns
    */
-  getSavedJobs():Observable<JobHttp[]> {
-
-    const savedData: JobHttp[] = []
+  getSavedJobs(): Observable<JobHttp[]> {
+    const savedData: JobHttp[] = [];
 
     const jobs: number[] = JSON.parse(localStorage.getItem('jobs')!);
+
+    if (!jobs || !jobs.length) {
+      return of(savedData);
+    }
 
     // 正式環境 API 的 URL
     const url = 'https://hunter.jbhr.com.tw/api/Job/GetJobDetial/';
@@ -60,18 +72,18 @@ export class JobLocalServiceService {
     // const url = 'https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/GetJobDetial/';
 
     // 分別將資料抓出來
-    jobs.forEach(job => {
-      this.http.get<JobHttp>(url+job).subscribe(data => {
+    jobs.forEach((job) => {
+      this.http.get<JobHttp>(url + job).subscribe((data) => {
         savedData.push(data);
       });
     });
-    
+
     return of(savedData);
   }
 
   /**
    * 在收藏職缺時呼叫的方法
-   * @param job 
+   * @param job
    */
   onJobFavorited(job: JobHttp) {
     // 更新相應的數據
