@@ -123,7 +123,7 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
-"@angular/animations@^13.0.0", "@angular/animations@^14.3.0", "@angular/animations@14.3.0":
+"@angular/animations@^14.0.0", "@angular/animations@^14.3.0", "@angular/animations@14.3.0":
   version "14.3.0"
   resolved "https://registry.npmjs.org/@angular/animations/-/animations-14.3.0.tgz"
   integrity sha512-QoBcIKy1ZiU+4qJsAh5Ls20BupWiXiZzKb0s6L9/dntPt5Msr4Ao289XR2P6O1L+kTsCprH9Kt41zyGQ/bkRqg==
@@ -165,7 +165,7 @@
     uuid "8.3.2"
     yargs "17.5.1"
 
-"@angular/common@*", "@angular/common@^13.0.0", "@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@^14.3.0", "@angular/common@>=12.0.0-0", "@angular/common@14.3.0":
+"@angular/common@*", "@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@^14.0.0", "@angular/common@^14.3.0", "@angular/common@>=12.0.0-0", "@angular/common@14.3.0":
   version "14.3.0"
   resolved "https://registry.npmjs.org/@angular/common/-/common-14.3.0.tgz"
   integrity sha512-pV9oyG3JhGWeQ+TFB0Qub6a1VZWMNZ6/7zEopvYivdqa5yDLLDSBRWb6P80RuONXyGnM1pa7l5nYopX+r/23GQ==
@@ -195,14 +195,14 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@*", "@angular/core@^13.0.0", "@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@^14.3.0", "@angular/core@>=12.0.0-0", "@angular/core@14.3.0":
+"@angular/core@*", "@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@^14.0.0", "@angular/core@^14.3.0", "@angular/core@>=12.0.0-0", "@angular/core@14.3.0":
   version "14.3.0"
   resolved "https://registry.npmjs.org/@angular/core/-/core-14.3.0.tgz"
   integrity sha512-wYiwItc0Uyn4FWZ/OAx/Ubp2/WrD3EgUJ476y1XI7yATGPF8n9Ld5iCXT08HOvc4eBcYlDfh90kTXR6/MfhzdQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^13.0.0", "@angular/forms@^14.3.0":
+"@angular/forms@^14.0.0", "@angular/forms@^14.3.0":
   version "14.3.0"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-14.3.0.tgz"
   integrity sha512-fBZZC2UFMom2AZPjGQzROPXFWO6kvCsPDKctjJwClVC8PuMrkm+RRyiYRdBbt2qxWHEqOZM2OCQo73xUyZOYHw==
@@ -4333,20 +4333,20 @@ neo-async@^2.6.2:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-recaptcha@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.npmjs.org/ng-recaptcha/-/ng-recaptcha-9.0.0.tgz"
-  integrity sha512-39YfJh1+p6gvfsGUhC8cmjhFZ1TtQ1OJES5SUgnanPL2aQuwrSX4WyTFh2liFn1dQqtGUVd5O4EhbcexB7AECQ==
+ng-recaptcha@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.npmjs.org/ng-recaptcha/-/ng-recaptcha-10.0.0.tgz"
+  integrity sha512-NpaQESxZXMY3blmp+tvjQzBRo3MkO+YBd0aZ2XAdPKsWRjvfpmqdvwXqXwnljIf9xwtoxe4b8oEKfiQ0LxoWZg==
   dependencies:
     "@types/grecaptcha" "^3.0.3"
     tslib "^2.2.0"
 
-ngx-bootstrap@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-8.0.0.tgz"
-  integrity sha512-UjJ/57Pr7ctdI2L113QX1IqJPYtOMrp5Qq/RLvUT1TOwPQWPi9LXTQ/7BtipkptQjer7Fk9yueITH3Y8vD+Dmg==
+ngx-bootstrap@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-9.0.0.tgz"
+  integrity sha512-wVwKs1jIASzJrKSPUhOcHY8f39MKyG31SruJdVQ3S/v/PdBVmVuFUJL86Awc8F60di2xD9C4DzzGObkvsHbirw==
   dependencies:
-    tslib "^2.0.0"
+    tslib "^2.3.0"
 
 ngx-print@^1.2.1:
   version "1.2.1"
@@ -4355,10 +4355,10 @@ ngx-print@^1.2.1:
   dependencies:
     tslib "^1.9.3"
 
-ngx-spinner@^13.1.1:
-  version "13.1.1"
-  resolved "https://registry.npmjs.org/ngx-spinner/-/ngx-spinner-13.1.1.tgz"
-  integrity sha512-6aJz4KxIsBrlQckJxcM3CEvMcYbZoSDnQZPu0F/ZYAYunbBOTb9iydw0Gjczg9moum1VURWjX5dTVKmFo85c2Q==
+ngx-spinner@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.npmjs.org/ngx-spinner/-/ngx-spinner-14.0.0.tgz"
+  integrity sha512-rz7wRCW4L+eZStpWwKUZ8mW+1WWtVEs1DZLDT1DUx1v3k+pLh5BhoDzfF1YySxTqZX13I7pwl13urqzniQ/jXQ==
   dependencies:
     tslib "^2.3.0"
 
