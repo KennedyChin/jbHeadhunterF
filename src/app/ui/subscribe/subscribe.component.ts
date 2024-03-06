@@ -20,6 +20,8 @@ import { finalize } from 'rxjs/internal/operators/finalize';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Title } from '@angular/platform-browser';
 
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-subscribe',
   templateUrl: './subscribe.component.html',
@@ -88,38 +90,36 @@ export class SubscribeComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('訂閱電子報｜JB Headhunter');
     // 將 dummyData 賦值給 multiselect 的 data 屬性
-    // this._http
-    //   .get<{ id: number; name: string; groupName: string }[]>(
-    //     'https://hunter.jbhr.com.tw/api/Job/place'
-    //   )
-    //   // ('https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/place')
-    //   .subscribe((data) => {
-    //     this.areaDataList = data.map((item) => ({
-    //       id: item.id,
-    //       name: item.name,
-    //       groupName: item.groupName,
-    //     }));
-    //     this.areaSelectedItems = [{ id: 0, name: '不拘', groupName: '無' }];
+    this._http
+      .get<{ id: number; name: string; groupName: string }[]>(
+        `${environment.apiUrl}/Job/place`
+      )
+      .subscribe((data) => {
+        this.areaDataList = data.map((item) => ({
+          id: item.id,
+          name: item.name,
+          groupName: item.groupName,
+        }));
+        this.areaSelectedItems = [{ id: 0, name: '不拘', groupName: '無' }];
 
-    //     console.log(this.areaDataList);
-    //     console.log(this.areaSelectedItems);
-    //   });
+        // console.log(this.areaDataList);
+        // console.log(this.areaSelectedItems);
+      });
 
-    // this._http
-    //   .get<{ id: number; name: string }[]>(
-    //     'https://hunter.jbhr.com.tw/api/Job/jobCategory'
-    //   )
-    //   // ('https://edc.jbhr.com.tw/FlyHigh/flyMe/Job/jobCategory')
-    //   .subscribe((data) => {
-    //     this.postDataList = data.map((item) => ({
-    //       id: item.id,
-    //       name: item.name,
-    //     }));
-    //     this.postSelectedItems = [{ id: 0, name: '不拘' }];
+    this._http
+      .get<{ id: number; name: string }[]>(
+        `${environment.apiUrl}/Job/jobCategory`
+      )
+      .subscribe((data) => {
+        this.postDataList = data.map((item) => ({
+          id: item.id,
+          name: item.name,
+        }));
+        this.postSelectedItems = [{ id: 0, name: '不拘' }];
 
-    //     console.log(this.postDataList);
-    //     console.log(this.postSelectedItems);
-    //   });
+        // console.log(this.postDataList);
+        // console.log(this.postSelectedItems);
+      });
   }
 
   private singleExecutionSubscription?: Subscription = undefined;
