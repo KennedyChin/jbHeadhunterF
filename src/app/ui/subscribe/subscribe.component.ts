@@ -10,11 +10,11 @@
  * ===================================================
  */
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription, empty } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
@@ -29,46 +29,25 @@ import { environment } from 'src/environments/environment';
 })
 export class SubscribeComponent implements OnInit {
   isLoading: boolean = false;
-  // message: string = ""
+  isDropdownActived = [false, false];
   @ViewChild('f', { static: false }) f: NgForm | undefined;
+  @HostListener('document:click', ['$event']) closeDropdown(e: Event) {
+    const selector =
+      (e.target as Element).closest('.selector') ||
+      (e.target as Element).closest('.selector_flag_cross');
+
+    if (!selector) {
+      this.isDropdownActived = [false, false];
+    }
+  }
 
   areaDataList: { id: number; name: string; groupName: string }[] = [];
   areaSelectedItems: { id: number; name: string; groupName: string }[] = [
     { id: 0, name: '不拘', groupName: '無' },
   ];
 
-  areaDropSetting = {
-    singleSelection: false,
-    searchPlaceholderText: '搜尋區域關鍵字',
-    text: '選擇區域',
-    enableCheckAll: false,
-    enableSearchFilter: true,
-    labelKey: 'name',
-    primaryKey: 'id',
-    idField: 'id',
-    textField: 'name',
-    badgeShowLimit: 5,
-    disabled: false,
-    groupBy: 'groupName',
-  } as IDropdownSettings;
-
   postDataList: { id: number; name: string }[] = [];
   postSelectedItems: { id: number; name: string }[] = [{ id: 0, name: '不拘' }];
-
-  postDropSetting = {
-    singleSelection: false,
-    searchPlaceholderText: '搜尋職務關鍵字',
-    text: '選擇職務',
-    enableCheckAll: false,
-    enableSearchFilter: true,
-    labelKey: 'name',
-    primaryKey: 'id',
-    idField: 'id',
-    textField: 'name',
-    badgeShowLimit: 5,
-    disabled: false,
-    selectionLimit: 3,
-  } as IDropdownSettings;
 
   constructor(
     private route: ActivatedRoute,
@@ -89,7 +68,7 @@ export class SubscribeComponent implements OnInit {
    */
   ngOnInit(): void {
     this.titleService.setTitle('訂閱電子報｜JB Headhunter');
-    // 將 dummyData 賦值給 multiselect 的 data 屬性
+
     this._http
       .get<{ id: number; name: string; groupName: string }[]>(
         `${environment.apiUrl}/Job/place`
@@ -101,9 +80,6 @@ export class SubscribeComponent implements OnInit {
           groupName: item.groupName,
         }));
         this.areaSelectedItems = [{ id: 0, name: '不拘', groupName: '無' }];
-
-        // console.log(this.areaDataList);
-        // console.log(this.areaSelectedItems);
       });
 
     this._http
@@ -116,9 +92,6 @@ export class SubscribeComponent implements OnInit {
           name: item.name,
         }));
         this.postSelectedItems = [{ id: 0, name: '不拘' }];
-
-        // console.log(this.postDataList);
-        // console.log(this.postSelectedItems);
       });
   }
 
@@ -136,12 +109,30 @@ export class SubscribeComponent implements OnInit {
   }
 
   /**
+   * 控制下拉選單
+   *
+   */
+  toggleDropdown(e: MouseEvent, dropdownTarget: number) {
+    const targetEl = e.target as Element;
+
+    if (
+      targetEl.closest('.selector_reset') ||
+      targetEl.closest('.selector_flag_cross') ||
+      targetEl.closest('.dropdown')
+    ) {
+      return;
+    }
+
+    this.isDropdownActived[dropdownTarget] =
+      !this.isDropdownActived[dropdownTarget];
+    this.isDropdownActived[dropdownTarget ? 0 : 1] = false;
+  }
+
+  /**
    * 訂閱電子報
    * @param form
    */
   subscribeNews(form: NgForm) {
-    console.log('test');
-
     // 姓名
     const username = form.value.username;
     // 郵件
@@ -173,36 +164,16 @@ export class SubscribeComponent implements OnInit {
 
     if (form.valid) {
       // 表單驗證通過，可以提交表單
-
-      // const sendUserData$ = this._http.post(
-      //   // 'https://hunter.jbhr.com.tw/api/NewNewspaper/subscribe'
-      //   'https://edc.jbhr.com.tw/FlyHigh/flyMe/NewNewspaper/subscribe'
-      //   , jsonBody, { 'headers': headers })
-      //   .pipe(finalize(()=>{}))
-
-      // sendUserData$.subscribe( (response: any) => {
-      //   if (response.status >= 200 && response.status < 300) {
-      //     console.log(response);
-      //     alert('訂閱完成');
-      //     window.location.href = 'https://hunter.jbhr.com.tw';
-      //   } else {
-      //     console.log(response);
-      //     alert('該 Email 帳號已存在');
-      //   }
-      // })
-
       const sendUserData$ = this._http.post(
-        'https://hunter.jbhr.com.tw/api/NewNewspaper/subscribe',
-        // 'https://edc.jbhr.com.tw/FlyHigh/flyMe/NewNewspaper/subscribe'
+        `${environment.apiUrl}/NewNewspaper/subscribe`,
         jsonBody,
         { headers }
       );
-
       sendUserData$.subscribe({
         next: (response: any) => {
           console.log(response);
           alert('訂閱完成');
-          window.location.href = 'https://hunter.jbhr.com.tw';
+          window.location.href = environment.homePage;
         },
         error: (error: any) => {
           console.log(error);
@@ -219,100 +190,4 @@ export class SubscribeComponent implements OnInit {
       // 表單驗證失敗，阻止提交表單
     }
   }
-
-  //#region 多選下拉選單控制
-
-  /**【職缺地區】選擇任意項目
-   *
-   */
-  onAreaItemSelect() {
-    // 如果使用者選擇了任何項目，則移除"不拘"
-    this.areaSelectedItems = this.areaSelectedItems.filter(
-      (item) => item.id !== 0
-    );
-    // 最多只能選擇3個項目
-    if (this.postSelectedItems.length > 3) {
-      this.postSelectedItems.shift();
-    }
-  }
-
-  /**【職缺地區】取消選擇項目
-   *
-   */
-  onAreaItemDeselect() {
-    // 如果使用者取消選擇了所有項目，則添加"不拘"
-    if (this.areaSelectedItems.length === 0) {
-      this.areaSelectedItems.push({ id: 0, name: '不拘', groupName: '無' });
-    }
-  }
-
-  /**【職缺地區】選擇全部項目
-   *
-   */
-  onAreaSelectAll() {
-    // 如果使用者選擇了所有項目，則移除"不拘"
-    this.areaSelectedItems = this.areaSelectedItems.filter(
-      (item) => item.id !== 0
-    );
-  }
-
-  /**【職缺地區】取消選擇全部項目
-   *
-   */
-  onAreaDeselectAll() {
-    // 如果使用者取消選擇了所有項目，則添加"不拘"
-    if (this.areaSelectedItems.length === 0) {
-      this.areaSelectedItems.push({ id: 0, name: '不拘', groupName: '無' });
-    }
-  }
-
-  /**【職務類別】選擇任意項目
-   *
-   */
-  onPostItemSelect() {
-    // 如果使用者選擇了任何項目，則移除"不拘"
-    this.postSelectedItems = this.postSelectedItems.filter(
-      (item) => item.id !== 0
-    );
-    // 最多只能選擇3個項目
-    if (this.postSelectedItems.length > 3) {
-      this.postSelectedItems.shift();
-    }
-  }
-
-  /**【職務類別】取消選擇項目
-   *
-   */
-  onPostItemDeselect() {
-    // 如果使用者取消選擇了所有項目，則添加"不拘"
-    if (this.postSelectedItems.length === 0) {
-      this.postSelectedItems.push({ id: 0, name: '不拘' });
-    }
-  }
-
-  /**【職務類別】選擇全部項目
-   *
-   */
-  onPostSelectAll() {
-    // 如果使用者選擇了所有項目，則移除"不拘"
-    this.postSelectedItems = this.postSelectedItems.filter(
-      (item) => item.id !== 0
-    );
-    // 最多只能選擇3個項目
-    if (this.postSelectedItems.length > 3) {
-      this.postSelectedItems.splice(3, this.postSelectedItems.length - 3);
-    }
-  }
-
-  /**【職務類別】取消選擇全部項目
-   *
-   */
-  onPostDeselectAll() {
-    // 如果使用者取消選擇了所有項目，則添加"不拘"
-    if (this.postSelectedItems.length === 0) {
-      this.postSelectedItems.push({ id: 0, name: '不拘' });
-    }
-  }
-
-  //#endregion
 }

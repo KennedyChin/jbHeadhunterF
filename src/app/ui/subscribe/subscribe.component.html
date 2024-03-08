@@ -109,33 +109,24 @@
               <div class="col-12 col-lg-12">
                 <div class="form-group mb-4">
                   <label>區域</label>
-                  <ng-multiselect-dropdown
-                    name="selectedArea"
-                    [data]="areaDataList"
-                    [(ngModel)]="areaSelectedItems"
-                    [settings]="areaDropSetting"
-                    (onSelect)="onAreaItemSelect()"
-                    (onDeSelect)="onAreaItemDeselect()"
-                    (onSelectAll)="onAreaSelectAll()"
-                    (onDeSelectAll)="onAreaDeselectAll()"
-                  >
-                  </ng-multiselect-dropdown>
+                  <app-subscribe-dropdown
+                    [isDropdownActived]="isDropdownActived[0]"
+                    [dropdownData]="areaDataList"
+                    [selectedDropdownOptions]="areaSelectedItems"
+                    (click)="toggleDropdown($event, 0)"
+                  ></app-subscribe-dropdown>
                 </div>
               </div>
               <div class="col-12 col-lg-12 mb-5">
                 <div class="form-group mb-4">
                   <label>職務（最多選擇 3 項）</label>
-                  <ng-multiselect-dropdown
-                    name="selectedPost"
-                    [data]="postDataList"
-                    [(ngModel)]="postSelectedItems"
-                    [settings]="postDropSetting"
-                    (onSelect)="onPostItemSelect()"
-                    (onDeSelect)="onPostItemDeselect()"
-                    (onSelectAll)="onPostSelectAll()"
-                    (onDeSelectAll)="onPostDeselectAll()"
-                  >
-                  </ng-multiselect-dropdown>
+                  <app-subscribe-dropdown
+                    [isDropdownActived]="isDropdownActived[1]"
+                    [dropdownData]="postDataList"
+                    [selectedDropdownOptions]="postSelectedItems"
+                    [optionsLimit]="3"
+                    (click)="toggleDropdown($event, 1)"
+                  ></app-subscribe-dropdown>
                 </div>
               </div>
             </div>

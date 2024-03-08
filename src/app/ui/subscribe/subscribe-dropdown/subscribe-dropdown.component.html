@@ -1,0 +1,121 @@
+<div class="selector">
+  <div class="selector_content">
+    <div class="selector_flags">
+      <div
+        *ngFor="let item of selectedDropdownOptions?.slice(0, 5)"
+        class="selector_flag"
+      >
+        <span>{{ item.name }}</span>
+        <div class="selector_flag_cross" (click)="removeFlag(item.id)">
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 8L8 16M8.00001 8L16 16"
+              stroke="#ffffff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectedDropdownOptions && selectedDropdownOptions!.length > 5">
+      <span>+{{ selectedDropdownOptions!.length - 5 }}</span>
+    </div>
+
+    <div class="selector_reset" (click)="resetFlags()">
+      <div class="selector_reset_cross">
+        <svg
+          width="20px"
+          height="20px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 8L8 16M8.00001 8L16 16"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="selector_arrow">
+      <img
+        src="../../../../assets/images/arrow-{{
+          isDropdownActived ? 'down' : 'up'
+        }}-svgrepo-com.svg"
+        alt="arrow up"
+      />
+    </div>
+  </div>
+
+  <div [hidden]="!isDropdownActived" class="dropdown">
+    <div class="dropdown_search">
+      <div class="dropdown_search_glass">
+        <svg
+          fill="#888"
+          height="25px"
+          width="25px"
+          id="Layer_1"
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            class="cls-1"
+            d="M13.07336,12.29053,10.14679,9.364a3.9711,3.9711,0,1,0-.78284.78284l2.92658,2.92657Zm-6.064-2.4516A2.82914,2.82914,0,1,1,9.8385,7.00934,2.83286,2.83286,0,0,1,7.00934,9.83893Z"
+          />
+        </svg>
+      </div>
+
+      <div class="dropdown_search_text">
+        <input
+          type="text"
+          [placeholder]="searchTextPlaceholder"
+          [(ngModel)]="searchText"
+          (ngModelChange)="filterOptions()"
+        />
+      </div>
+    </div>
+
+    <ul class="dropdown_group">
+      <li *ngIf="filteredData.length === 0" class="dropdown_option">
+        <input type="checkbox" id="taiwan" />
+        <label for="taiwan">不拘</label>
+      </li>
+
+      <ng-container *ngFor="let data of filteredData; let i = index">
+        <li
+          *ngIf="groupNamesPos.includes(i)"
+          class="dropdown_option dropdown_option--group"
+          (click)="toggleAllOptions(i)"
+        >
+          <input
+            type="checkbox"
+            [id]="filteredData[i].groupName"
+            #dropdownOptionCheckbox
+          />
+          <label [for]="filteredData[i].groupName">{{
+            filteredData[i].groupName
+          }}</label>
+        </li>
+
+        <li class="dropdown_option" (click)="toggleOption($event, i)">
+          <input type="checkbox" [id]="data.id" #dropdownOptionCheckbox />
+          <label [for]="data.id">{{ data.name }}</label>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
