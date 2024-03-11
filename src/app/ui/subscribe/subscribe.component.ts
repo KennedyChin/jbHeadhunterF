@@ -171,12 +171,12 @@ export class SubscribeComponent implements OnInit {
       );
       sendUserData$.subscribe({
         next: (response: any) => {
-          console.log(response);
+          // console.log(response);
           alert('訂閱完成');
           window.location.href = environment.homePage;
         },
         error: (error: any) => {
-          console.log(error);
+          // console.log(error);
           if (error.status === 409) {
             alert(
               '該 Email 帳號已存在訂閱紀錄\n若您要變更訂閱條件，請於取消訂閱後重新訂閱\n\n若仍有疑問，歡迎於 Line 與我們聯繫，謝謝'
