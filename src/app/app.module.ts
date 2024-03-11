@@ -1,7 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APP_BASE_HREF, PlatformLocation, DatePipe } from '@angular/common';
 
@@ -137,11 +140,14 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
       useFactory: (s: PlatformLocation) => s.getBaseHrefFromDOM(),
       deps: [PlatformLocation],
     },
-    //,{provide: RECAPTCHA_V3_SITE_KEY, useValue: "6Lf63x0gAAAAAOHCsyhYgRLAQH-71pkA1EbMWS3E"}
+    provideClientHydration(),
+    //,{provide: RECAPTCHA_V3_SITE_KEY, useValue: "6Lf63x0gAAAAAOHCsyhYgRLAQH-71pkA1EbMWS3E"},
   ],
   bootstrap: [AppComponent],
   // schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  constructor() {}
+  constructor() {
+    provideHttpClient();
+  }
 }

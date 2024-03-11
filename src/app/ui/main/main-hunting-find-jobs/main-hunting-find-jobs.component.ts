@@ -58,7 +58,10 @@ export class MainHuntingFindJobsComponent implements OnInit {
 
     let o = this._jobService.getSavedJobs();
 
-    const jobs: number[] = JSON.parse(localStorage.getItem('jobs')!);
+    const jobs: number[] =
+      typeof localStorage !== 'undefined'
+        ? JSON.parse(localStorage.getItem('jobs')!)
+        : [];
 
     this._jobService.updateLocalStorage(jobs, o);
   }

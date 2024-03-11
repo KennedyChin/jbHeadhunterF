@@ -62,6 +62,10 @@ export class JobLocalServiceService {
   getSavedJobs(): Observable<JobHttp[]> {
     const savedData: JobHttp[] = [];
 
+    if (typeof localStorage === 'undefined') {
+      return of(savedData);
+    }
+
     const jobs: number[] = JSON.parse(localStorage.getItem('jobs')!);
 
     if (!jobs || !jobs.length) {
