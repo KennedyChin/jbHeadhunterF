@@ -71,8 +71,6 @@ export class UnsubscribeComponent implements OnInit {
    * @param form
    */
   unsubscribeNews(form: NgForm) {
-    console.log('test');
-
     // 郵件
     const usermail = form.value.usermail;
 
