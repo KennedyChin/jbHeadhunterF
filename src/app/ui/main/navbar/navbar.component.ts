@@ -48,7 +48,6 @@ export class NavbarComponent implements OnInit {
         : [];
 
     // 返回数组长度作为收藏职缺数量
-    return savedJobsIds.length;
-    return 0;
+    return savedJobsIds.length || 0;
   }
 }
