@@ -1,23 +1,25 @@
 <header class="py-5 header-img img-opt">
-    <div class="container px-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-xxl-6">
-                <div class="text-center my-5">
-                    <h1 class="fw-bolder mb-3 text-white">上傳履歷</h1>
-                </div>
-            </div>
+  <div class="container px-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xxl-6">
+        <div class="text-center my-5">
+          <h1 class="fw-bolder mb-3 text-white">上傳履歷</h1>
         </div>
+      </div>
     </div>
+  </div>
 </header>
-<section style="background-image: linear-gradient(to top,  #f6f6f6, rgba(0, 0, 0, 0.0));">
-    <div class="p-t50"  style="margin-top:-5rem!important;">
-        <div class="container section-full">
-            <div style="text-align: center;" *ngIf="isLoading">
-                <app-loading-spinner1></app-loading-spinner1>
-            </div>
-            <!-- <div class="modal-dialog bg-img-fix"> -->
-            <div class="row justify-content-md-center" *ngIf="!isLoading">
-                <!--<div class="col-lg-6 col-md-6" style="background-image: url(../../../assets/images/background/bg3.jpg);  background-position:center; background-size:cover;">
+<section
+  style="background-image: linear-gradient(to top, #f6f6f6, rgba(0, 0, 0, 0))"
+>
+  <div class="p-t50" style="margin-top: -5rem !important">
+    <div class="container section-full">
+      <div style="text-align: center" *ngIf="isLoading">
+        <app-loading-spinner1></app-loading-spinner1>
+      </div>
+      <!-- <div class="modal-dialog bg-img-fix"> -->
+      <div class="row justify-content-md-center" *ngIf="!isLoading">
+        <!--<div class="col-lg-6 col-md-6" style="background-image: url(../../../assets/images/background/bg3.jpg);  background-position:center; background-size:cover;">
                     <div class="form-info text-white align-self-center">
                         <h3 class="m-b15">Login To You Now</h3>
                         <p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry.</p>
@@ -25,96 +27,177 @@
                     </div>
                 </div>-->
 
-                <div class="col-lg-6  col-md-6 browse-job  forgot_box  shadow-sm">
-                    <!-- <div class="mb-3"><a href="" title="點我回首頁"><img src="assets/images/logo.png" alt="傑報人力銀行" style="width:160px; height: auto;"></a></div> -->
-                    <!-- <div class="alert alert-danger" *ngIf="message">
+        <div class="col-lg-6 col-md-6 browse-job forgot_box shadow-sm">
+          <!-- <div class="mb-3"><a href="" title="點我回首頁"><img src="assets/images/logo.png" alt="傑報人力銀行" style="width:160px; height: auto;"></a></div> -->
+          <!-- <div class="alert alert-danger" *ngIf="message">
                         <div>
                             {{ message }}
                         </div>
                     </div> -->
-                    <div class="mb-4 text-muted">
-                        請填具以下表單並上傳您的履歷資料，傑報顧問將盡快與您聯繫。
-                        系統可接受的檔案格式：pdf、pptx、xlsx、docx
-                    </div>
-                        <div class="mb-4">
-                            <label for="formFileMultiple">上傳履歷<span
-                                    class="text-orange m-lg-1"><strong>*</strong></span></label>
-                            <input class="form-control" type="file" id="formFileMultiple" multiple
-                            accept=".pdf, .pptx, .xlsx, .docx" 
-                            (change)="onFileSelected($any($event).target.files)"
-                            [ngClass]="{'error-border is-invalid':(!u.valid && f.submitted)||(!u.valid && u.touched)}"
-                            [ngStyle]="{'border': !u.valid && u.touched ? '1px solid red' : ''}" ngModel #u="ngModel" required
-                            #resumeInput>
-                        </div>
-                    <form #f="ngForm" (ngSubmit)="executeAction('subscribe')" novalidate>
-                        <!-- <form #f="ngForm" (ngSubmit)="loginMe()"> -->
+          <div class="mb-4 text-muted">
+            請填具以下表單並上傳您的履歷資料，傑報顧問將盡快與您聯繫。
+            系統可接受的檔案格式：pdf、pptx、xlsx、docx
+          </div>
+          <div class="mb-4">
+            <label for="formFileMultiple"
+              >上傳履歷<span class="text-orange m-lg-1"
+                ><strong>*</strong></span
+              ></label
+            >
+            <input
+              class="form-control"
+              type="file"
+              id="formFileMultiple"
+              multiple
+              accept=".pdf, .pptx, .xlsx, .docx"
+              (change)="onFileSelected($any($event).target.files)"
+              [ngClass]="{
+                'error-border is-invalid':
+                  (!u.valid && f.submitted) || (!u.valid && u.touched)
+              }"
+              [ngStyle]="{
+                border: !u.valid && u.touched ? '1px solid red' : ''
+              }"
+              ngModel
+              #u="ngModel"
+              required
+              #resumeInput
+            />
+          </div>
+          <form #f="ngForm" (ngSubmit)="executeAction('subscribe')" novalidate>
+            <!-- <form #f="ngForm" (ngSubmit)="loginMe()"> -->
 
-                        <label>姓名<span class="text-orange m-lg-1"><strong>*</strong></span></label>
-                        <div class="form-group mb-4">
-                            <input type="text" #q="ngModel" ngModel name="username" class="form-control input-required"
-                                placeholder="請輸入您的姓名" required
-                                [ngClass]="{'error-border is-invalid': (!q.valid && f.submitted)||(!q.valid && q.touched)}"
-                                required />
-                        </div>
-                        <label class="d-flex justify-content-between">
-                            <span >E-mail<span class="text-orange m-lg-1"><strong>*</strong></span></span>
-                            <span class="error" *ngIf="p.invalid && p.dirty">E-mail格式錯誤</span>
-                        </label>
-                        <div class="form-group mb-4">
-                            <input ngModel #p="ngModel" name="usermail" class="form-control input-required"
-                                placeholder="請輸入您的E-mail" required
-                                [ngClass]="{'error-border is-invalid':(!p.valid && f.submitted)||(!p.valid && p.touched)}" email 
-                                [ngStyle]="{'border': p.invalid && p.touched ? '1px solid red' : ''}"/>
-                            <!-- <span class="asterisk_input"></span> -->
-                        </div>
-                        <label>聯絡電話<span class="text-orange m-lg-1"><strong>*</strong></span></label>
-                        <div class="form-group mb-4">
-                            <input type="text" #t="ngModel" ngModel name="usercontact" class="form-control input-required"
-                                placeholder="請輸入您的聯絡電話（如：0912-345678）" required
-                                pattern="[\d+-]+"
-                                [ngClass]="{'error-border is-invalid': (!t.valid && f.submitted)||(!t.valid && t.touched)}"
-                                required />
-                        </div>
-                        <label>
-                            <span>可聯繫時間<span class="text-orange m-lg-1"><strong>*</strong></span></span>
-                            
-                            <span class="note text-muted mt-2">
-                                {{ userOccasion.length }} / {{ maxCharCount }} 字符
-                            </span>
-                        </label>
-                        <div class="form-group mb-4">
-                            <input
-                                type="text"
-                                #r="ngModel"
-                                [(ngModel)]="userOccasion"
-                                name="useroccasion"
-                                class="form-control input-required"
-                                placeholder="請輸入您的可聯繫時間"
-                                required
-                                [ngClass]="{'error-border is-invalid': (!r.valid && f.submitted)||(!r.valid && r.touched)}"
-                                required
-                                (input)="updateCharCount()"
-                                maxlength="{{ maxCharCount }}"
-                            />
-                        </div>
-                        <div class="mb-5">
-  
-                                <input type="checkbox" (change)="agreePrivacyPolicy = !agreePrivacyPolicy"
-                                    [checked]="agreePrivacyPolicy" class="form-check-input">
-                                <label class="ml-2">我同意遵守《
-                                <a (click)="openPrivacyPolicy()">
-                                    <b class="text-darkblue">隱私權條款</b>
-                                </a> 》</label>
-                        </div>
-                        <div class="row justify-content-md-center clearfix">
-                            <div class="col-lg-6  col-md-6">
-                                <button type="submit" class="btn btn-orange btn-block" (click)="sendUserData(f)">送出</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- <button (click)="clickTickTock()">test</button> -->
-                </div>
+            <label
+              >姓名<span class="text-orange m-lg-1"
+                ><strong>*</strong></span
+              ></label
+            >
+            <div class="form-group mb-4">
+              <input
+                type="text"
+                #q="ngModel"
+                ngModel
+                name="username"
+                class="form-control input-required"
+                placeholder="請輸入您的姓名"
+                required
+                [ngClass]="{
+                  'error-border is-invalid':
+                    (!q.valid && f.submitted) || (!q.valid && q.touched)
+                }"
+                required
+              />
             </div>
+            <label class="d-flex justify-content-between">
+              <span
+                >E-mail<span class="text-orange m-lg-1"
+                  ><strong>*</strong></span
+                ></span
+              >
+              <span class="error" *ngIf="p.invalid && p.dirty"
+                >E-mail格式錯誤</span
+              >
+            </label>
+            <div class="form-group mb-4">
+              <input
+                ngModel
+                #p="ngModel"
+                name="usermail"
+                class="form-control input-required"
+                placeholder="請輸入您的E-mail"
+                required
+                [ngClass]="{
+                  'error-border is-invalid':
+                    (!p.valid && f.submitted) || (!p.valid && p.touched)
+                }"
+                email
+                [ngStyle]="{
+                  border: p.invalid && p.touched ? '1px solid red' : ''
+                }"
+              />
+              <!-- <span class="asterisk_input"></span> -->
+            </div>
+            <label
+              >聯絡電話<span class="text-orange m-lg-1"
+                ><strong>*</strong></span
+              ></label
+            >
+            <div class="form-group mb-4">
+              <input
+                type="text"
+                #t="ngModel"
+                ngModel
+                name="usercontact"
+                class="form-control input-required"
+                placeholder="請輸入您的聯絡電話（如：0912-345678）"
+                required
+                pattern="[\d+-]+"
+                [ngClass]="{
+                  'error-border is-invalid':
+                    (!t.valid && f.submitted) || (!t.valid && t.touched)
+                }"
+                required
+              />
+            </div>
+            <label>
+              <span
+                >可聯繫時間<span class="text-orange m-lg-1"
+                  ><strong>*</strong></span
+                ></span
+              >
+
+              <span class="note text-muted mt-2">
+                {{ userOccasion.length }} / {{ maxCharCount }} 字符
+              </span>
+            </label>
+            <div class="form-group mb-4">
+              <input
+                type="text"
+                #r="ngModel"
+                [(ngModel)]="userOccasion"
+                name="useroccasion"
+                class="form-control input-required"
+                placeholder="請輸入您的可聯繫時間"
+                required
+                [ngClass]="{
+                  'error-border is-invalid':
+                    (!r.valid && f.submitted) || (!r.valid && r.touched)
+                }"
+                required
+                (input)="updateCharCount()"
+                maxlength="{{ maxCharCount }}"
+              />
+            </div>
+            <div class="mb-5">
+              <input
+                type="checkbox"
+                (change)="agreePrivacyPolicy = !agreePrivacyPolicy"
+                [checked]="agreePrivacyPolicy"
+                class="form-check-input"
+              />
+              <label class="ml-2"
+                >我同意遵守《
+                <a (click)="openPrivacyPolicy()">
+                  <b class="text-darkblue">隱私權條款</b>
+                </a>
+                》</label
+              >
+            </div>
+            <div class="row justify-content-md-center clearfix">
+              <div class="col-lg-6 col-md-6">
+                <button
+                  type="submit"
+                  class="btn btn-orange btn-block"
+                  (click)="sendUserData(f)"
+                >
+                  送出
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- <button (click)="clickTickTock()">test</button> -->
         </div>
+      </div>
     </div>
+  </div>
 </section>
