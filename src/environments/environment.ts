@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'https://edc.jbhr.com.tw/FlyHigh/flyMe',
   hotJobImagePath: 'https://www.jbhr.com.tw/JQWebClient2015/Files/Files/Jobs',
-  homePage: 'http://localhost:4200',
+  homePage: 'https://edc.jbhr.com.tw/hunterTest',
   /**
    * default token time (millisecond)/ tokenHPOffset
    * 前端登入有效時間量 != token 實際有效存活時間
