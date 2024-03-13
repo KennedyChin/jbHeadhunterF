@@ -19,7 +19,8 @@ import {
 } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Observable, ReplaySubject, Subscription } from 'rxjs';
+import { Meta } from '@angular/platform-browser';
+import { Observable, ReplaySubject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -51,6 +52,7 @@ export class JobDetailComponent implements OnInit {
   @Output() jobsEvent = new EventEmitter<JobHttp>();
 
   constructor(
+    private meta: Meta,
     private route: ActivatedRoute,
     private router: Router,
     private _utility: Utility,
@@ -97,7 +99,24 @@ export class JobDetailComponent implements OnInit {
     this.updateSavedJobsCount(savedJobsIds.length);
   }
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    const data: JobHttp = await this.fetchData();
+
+    this.meta.updateTag({ property: 'og:title', content: data.jobName });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: data.jobContent || '',
+    });
+    // this.meta.updateTag({ property: 'og:url', content: data.url });
+  }
+
+  fetchData() {
+    return new Promise<JobHttp>((resolve, reject) => {
+      this.jobSub$.subscribe((res) => {
+        resolve(res);
+      }, reject);
+    });
+  }
 
   /**
    * 檢查職缺是否已收藏
@@ -109,7 +128,7 @@ export class JobDetailComponent implements OnInit {
       typeof localStorage !== 'undefined'
         ? JSON.parse(localStorage.getItem('jobs')!)
         : [];
-    return savedJobsIds.includes(job.id);
+    return savedJobsIds?.includes(job.id);
   }
 
   modalRef?: BsModalRef;

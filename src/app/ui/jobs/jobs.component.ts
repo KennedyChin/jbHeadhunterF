@@ -59,8 +59,12 @@ export class JobsComponent implements OnInit {
   ngOnInit(): void {}
 
   isJobSaved(job: JobHttp): boolean {
-    let savedJobsIds = JSON.parse(localStorage.getItem('jobs')!) || [];
-    return savedJobsIds.includes(job.id);
+    let savedJobsIds =
+      typeof localStorage !== 'undefined'
+        ? JSON.parse(localStorage.getItem('jobs')!)
+        : [];
+
+    return savedJobsIds?.includes(job.id);
   }
 
   // 收藏 & 解除收藏
