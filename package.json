@@ -4,14 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href=/hunterTest/",
+    "build-dev": "ng build --base-href=/hunterTest/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run jbHeadhunterF:serve-ssr",
     "serve:ssr": "node dist/jbHeadhunterF/server/main.js",
     "build:ssr": "ng build --base-href=/hunterTest/ && ng run jbHeadhunterF:server",
     "build-dev:ssr": "ng build --base-href=/hunterTest/ --configuration development && ng run jbHeadhunterF:server",
-    "prerender": "ng run jbHeadhunterF:prerender"
+    "prerender": "ng run jbHeadhunterF:prerender",
+    "vercel-build": "npm run build:ssr"
   },
   "private": true,
   "dependencies": {
