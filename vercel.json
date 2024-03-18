@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "public": true,
+  "name": "jbHeadhunterF",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/jbHeadhunterF/browser/**"
+    }
+  }
+}
