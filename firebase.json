@@ -1,0 +1,17 @@
+{
+  "functions": [
+    {
+      "source": "dist/jbHeadhunterF/server"
+    }
+  ],
+  "hosting": {
+    "public": "dist/jbHeadhunterF/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "functions": "ssr"
+      }
+    ]
+  }
+}
