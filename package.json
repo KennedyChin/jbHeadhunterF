@@ -9,8 +9,8 @@
     "test": "ng test",
     "dev:ssr": "ng run jbHeadhunterF:serve-ssr",
     "serve:ssr": "node dist/jbHeadhunterF/server/main.js",
-    "build:ssr": "ng build --base-href=/hunterTest/ && ng run jbHeadhunterF:server",
-    "build-dev:ssr": "ng build --base-href=/hunterTest/ --configuration development && ng run jbHeadhunterF:server",
+    "build:ssr": "ng build --base-href=/hunterTest/ --configuration development && ng run jbHeadhunterF:server",
+    "build-prod:ssr": "ng build --base-href=/hunterTest/ && ng run jbHeadhunterF:server",
     "prerender": "ng run jbHeadhunterF:prerender"
   },
   "private": true,
