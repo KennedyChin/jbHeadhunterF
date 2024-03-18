@@ -11,8 +11,7 @@
     "serve:ssr": "node dist/jbHeadhunterF/server/main.js",
     "build:ssr": "ng build --base-href=/hunterTest/ && ng run jbHeadhunterF:server",
     "build-dev:ssr": "ng build --base-href=/hunterTest/ --configuration development && ng run jbHeadhunterF:server",
-    "prerender": "ng run jbHeadhunterF:prerender",
-    "vercel-build": "npm run build-dev:ssr"
+    "prerender": "ng run jbHeadhunterF:prerender"
   },
   "private": true,
   "dependencies": {
