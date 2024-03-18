@@ -102,11 +102,11 @@ export class JobDetailComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const data: JobHttp = await this.fetchData();
 
-    this.meta.updateTag({ property: 'og:title', content: data.jobName });
-    this.meta.updateTag({
-      property: 'og:description',
-      content: data.jobContent || '',
-    });
+    // this.meta.updateTag({ property: 'og:title', content: data.jobName });
+    // this.meta.updateTag({
+    //   property: 'og:description',
+    //   content: data.jobContent || '',
+    // });
     // this.meta.updateTag({ property: 'og:url', content: data.url });
   }
 
