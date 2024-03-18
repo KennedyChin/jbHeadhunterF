@@ -1,3 +1,3 @@
-export default import("../dist/jbHeadhunterF/server/main").then((module) =>
-  module.app()
-);
+const server = require("../dist/YOUR_PROJECT_NAME/server/main");
+
+module.exports = server.app();
